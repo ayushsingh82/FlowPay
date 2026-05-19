@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const ACCENT = "#B6E324";
+const ACCENT = "#BE185D";
 
 const HERO_VIDEO =
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4";
@@ -113,20 +113,20 @@ function Slide1Title() {
 
       <div className="relative z-10 flex flex-col justify-center h-full pl-16 lg:pl-24 max-w-[60%]">
         <div className="flex items-center gap-4 mb-6">
-          <img src="/logo.svg" alt="Vela" className="w-12 h-12" />
+          <img src="/logo.svg" alt="FlowPay" className="w-12 h-12" />
           <h1 className="text-5xl lg:text-6xl font-display tracking-tight text-white">
-            Ve<span style={{ color: ACCENT }}>la</span>
+            Flow<span style={{ color: ACCENT }}>Pay</span>
           </h1>
         </div>
 
         <p className="text-lg text-white/60 font-mono mb-10 leading-relaxed">
-          Stock-collateralized credit lines on Robinhood Chain.
+          The payment app where your money never stops earning.
           <br />
-          Borrow USDG without selling your stocks.
+          Multi-asset wallet on Sui · Scallop yield · atomic PTB spend.
         </p>
 
         <p className="text-sm text-white/30 font-mono">
-          Arbitrum Open House London — Online Buildathon · May 2026
+          Sui Overflow 2026 · DeFi &amp; Payments track
         </p>
       </div>
     </div>
@@ -139,9 +139,9 @@ function Slide2Problem() {
       eyebrow="The Problem"
       heading={
         <>
-          Selling stock to access
+          Today&apos;s stablecoin
           <br />
-          cash is expensive.
+          apps make you choose.
         </>
       }
       media="/images/audit.jpg"
@@ -150,20 +150,20 @@ function Slide2Problem() {
       <div className="space-y-3">
         {[
           {
-            title: "You realise capital gains",
-            body: "A taxable event for every dollar of liquidity you need. Especially painful for long-term holders.",
+            title: "Earn or spend — never both",
+            body: "To pay, you withdraw from yield. APY resets to zero. The friction kills compounding.",
           },
           {
-            title: "You exit the rally",
-            body: "Selling now means missing the next earnings beat, the next product launch, the next short squeeze.",
+            title: "Manual swaps, every time",
+            body: "Merchant wants USDC. You hold SUI. Open a DEX. Pay slippage. Try not to fat-finger the address.",
           },
           {
-            title: "You pay the spread",
-            body: "Brokerage fees, slippage and bid-ask cost real money on every full-cycle exit-and-rebuy.",
+            title: "Custodial apps earn 0%",
+            body: "Cash App and Venmo are easy — and they pay you nothing on the float. Billions sit idle.",
           },
           {
-            title: "TradFi has solved this — onchain hasn't",
-            body: "$700B in securities-based lending exists at Morgan Stanley, Schwab and Goldman. None of it on chain.",
+            title: "Self-custodial apps are scary",
+            body: "Seed phrases. Network IDs. Gas tokens. The UX of crypto wallets has never been ready for normal people.",
           },
         ].map((item) => (
           <div key={item.title} className="flex gap-4 border border-white/25 p-4">
@@ -188,9 +188,9 @@ function Slide3Solution() {
       eyebrow="The Solution"
       heading={
         <>
-          Vela is Aave for the
+          One atomic PTB.
           <br />
-          $50T equity market.
+          Earn + spend + settle.
         </>
       }
       headingSize="clamp(2.2rem, 3.4vw, 3.6rem)"
@@ -198,14 +198,15 @@ function Slide3Solution() {
       textSide="right"
     >
       <p className="text-white/60 text-base mb-6 leading-relaxed text-right">
-        Deposit tokenized TSLA, AMZN, AMD, PLTR or NFLX. Borrow USDG up to your per-asset
-        capacity. Agent watches the position. Repay any time. Never sell a share.
+        Hold a basket on Sui. Idle balance auto-earns on Scallop. Every spend
+        borrows against your position, swaps if needed, and settles to the
+        merchant — all in one atomic transaction. Your APY counter never blinks.
       </p>
       <div className="space-y-3">
         {[
-          { step: "01", label: "Deposit", desc: "stock → collateral", color: "#34d399" },
-          { step: "02", label: "Borrow USDG", desc: "credit line opens", color: ACCENT },
-          { step: "03", label: "Repay & withdraw", desc: "position closed", color: "#60a5fa" },
+          { step: "01", label: "Deposit", desc: "asset → FlowVault", color: "#34d399" },
+          { step: "02", label: "Auto-earn", desc: "Scallop pool, live APY", color: ACCENT },
+          { step: "03", label: "Atomic spend", desc: "borrow → swap → send", color: "#60a5fa" },
         ].map((s) => (
           <div
             key={s.step}
@@ -232,7 +233,7 @@ function Slide4WhyNow() {
   return (
     <MediaSlide
       eyebrow="Why Now"
-      heading={<>Three lines crossed this year.</>}
+      heading={<>Three lines crossed in 2026.</>}
       headingSize="clamp(2.2rem, 3.4vw, 3.6rem)"
       media="/images/bridge.png"
       textSide="left"
@@ -240,20 +241,20 @@ function Slide4WhyNow() {
       <div className="space-y-3">
         {[
           {
-            title: "Tokenized stocks went live",
-            body: "Robinhood Chain testnet ships five real equities natively. The collateral exists.",
+            title: "Sui PTBs unlocked atomic spend",
+            body: "No other chain can compose borrow + swap + settle in a single revertible transaction. FlowPay is built on the only rail that can.",
           },
           {
-            title: "USDG joined the stack",
-            body: "Paxos' Global Dollar is the chain's native stablecoin. The borrow asset is right there.",
+            title: "Scallop crossed institutional scale",
+            body: "Audited lending pools across SUI, USDC, BTC, and ETH. The yield engine is production-ready.",
           },
           {
-            title: "Agent infra is finally usable",
-            body: "We can run a real-time risk engine that pre-warns users — not just keepers racing for bonuses.",
+            title: "zkLogin made onboarding sane",
+            body: "Sign in with Google → wallet exists. No seed phrases, no faucet hunt. The last UX wall fell.",
           },
           {
-            title: "Arbitrum is the rails",
-            body: "Open House London buildathon directly funds infra projects on RH Chain / Arbitrum.",
+            title: "Sui Overflow 2026 funds the rails",
+            body: "$500K+ across DeFi & Payments and DeepBook specialized pools. Right track, right moment.",
           },
         ].map((item) => (
           <div key={item.title} className="flex gap-4 border border-white/25 p-4">
@@ -276,7 +277,7 @@ function Slide5Product() {
   return (
     <MediaSlide
       eyebrow="Product"
-      heading={<>Three contracts. One agent.</>}
+      heading={<>Three modules. One PTB.</>}
       headingSize="clamp(2.5rem, 3.8vw, 4rem)"
       media="/images/isolated.jpg"
       textSide="right"
@@ -290,31 +291,31 @@ function Slide5Product() {
         </p>
         <div className="font-mono text-sm space-y-2">
           <p>
-            <span style={{ color: ACCENT }}>vela</span>
+            <span style={{ color: ACCENT }}>flowpay</span>
             <span className="text-white/40">.deposit(</span>
             <span className="text-white/80">asset, amount</span>
             <span className="text-white/40">)</span>
           </p>
           <p>
-            <span style={{ color: ACCENT }}>vela</span>
-            <span className="text-white/40">.borrow(</span>
-            <span className="text-white/80">amount</span>
+            <span style={{ color: ACCENT }}>flowpay</span>
+            <span className="text-white/40">.pay(</span>
+            <span className="text-white/80">to, amount</span>
             <span className="text-white/40">)</span>
           </p>
           <p>
-            <span style={{ color: ACCENT }}>vela</span>
-            <span className="text-white/40">.repay(</span>
-            <span className="text-white/80">amount</span>
+            <span style={{ color: ACCENT }}>flowpay</span>
+            <span className="text-white/40">.watchVault(</span>
+            <span className="text-white/80">user</span>
             <span className="text-white/40">)</span>
           </p>
         </div>
       </div>
       <div className="space-y-2">
         {[
-          "LendingPool, CollateralVault, Liquidator — Solidity",
-          "Helmsman risk agent — off-chain TS service",
-          "Two-slope kinked rate, per-asset LTV",
-          "Live on Robinhood Chain Testnet (chainId 46630)",
+          "FlowVault, SmartRouter, BorrowGuard — Sui Move",
+          "Scallop = yield engine · Pyth = price oracle",
+          "DeepBook hooks reserved in SmartRouter",
+          "Live on Sui Testnet for Sui Overflow 2026",
         ].map((item) => (
           <div key={item} className="flex gap-3 text-sm text-white/60 justify-end">
             <span>{item}</span>
@@ -329,8 +330,8 @@ function Slide5Product() {
 function Slide6Business() {
   return (
     <MediaSlide
-      eyebrow="Business Model"
-      heading={<>Aave-proven economics.</>}
+      eyebrow="Sponsor Stack"
+      heading={<>Built on the strongest rails.</>}
       headingSize="clamp(2.5rem, 3.8vw, 4rem)"
       media="/images/permissions.jpg"
       textSide="left"
@@ -343,33 +344,33 @@ function Slide6Business() {
           className="text-xs font-mono uppercase tracking-widest mb-2"
           style={{ color: ACCENT + "99" }}
         >
-          Reserve factor
+          Prize stack — dual eligible
         </p>
         <p className="text-6xl font-display text-white">
-          10<span className="text-3xl text-white/40">%</span>
+          $100<span className="text-3xl text-white/40">K+ realistic</span>
         </p>
         <p className="text-sm text-white/50 mt-2">
-          Of every USDG interest payment. Routed to the protocol treasury.
+          DeFi &amp; Payments core ($30K) + DeepBook specialized pool ($70K share).
         </p>
       </div>
       <div className="space-y-2">
         <p className="text-xs font-mono text-white/35 uppercase tracking-widest mb-3">
-          Revenue tiers
+          Sponsor integration depth
         </p>
         {[
           {
-            tier: "Now",
-            desc: "Reserve factor on every borrow. Scales with utilisation.",
+            tier: "Scallop",
+            desc: "Yield engine. Every deposit, every borrow. Core dependency.",
             color: "#34d399",
           },
           {
-            tier: "Q3",
-            desc: "Partner fee split for wallets / brokerages embedding Vela.",
+            tier: "DeepBook",
+            desc: "Spot routing on every spend. Predict for FX. Margin for BNPL.",
             color: ACCENT,
           },
           {
-            tier: "Mainnet",
-            desc: "Helmsman-as-a-service for institutional treasuries.",
+            tier: "OpenZeppelin",
+            desc: "Battle-tested patterns: access control, pause, oracle guards.",
             color: "#a78bfa",
           },
         ].map((item) => (
@@ -396,39 +397,39 @@ function Slide7Roadmap() {
   return (
     <MediaSlide
       eyebrow="Roadmap"
-      heading={<>Buildathon → mainnet.</>}
+      heading={<>Hackathon → mainnet.</>}
       media="/images/whale.png"
       textSide="right"
     >
       <div className="space-y-5">
         {[
           {
-            date: "May 18, 2026",
+            date: "May 2026",
             label: "Submission",
             done: true,
             upcoming: false,
-            items: ["Frontend + docs", "Pool + vault + agent skeleton", "Live on RH testnet"],
+            items: ["Frontend + docs", "Vault + router + guard skeleton", "Live on Sui Testnet"],
           },
           {
-            date: "May 25, 2026",
-            label: "Buildathon close",
+            date: "June 2026",
+            label: "DeepBook integration",
             done: false,
             upcoming: true,
-            items: ["Liquidations live", "First borrow + repay demo", "Helmsman alerts wired"],
+            items: ["Spot routing live", "Predict FX rate-lock", "Margin BNPL"],
           },
           {
             date: "Q3 2026",
             label: "Public testnet",
             done: false,
             upcoming: false,
-            items: ["Partner SDK", "Permissionless oracle plan", "First treasury pilots"],
+            items: ["Merchant SDK", "Family/group vaults", "First design partners"],
           },
           {
             date: "Q4 2026",
             label: "Mainnet alpha",
             done: false,
             upcoming: false,
-            items: ["Audited contracts", "Timelocked governance", "Mainnet USDG market"],
+            items: ["Audited modules", "Multisig governance", "Mainnet on Sui"],
           },
         ].map((row, i) => (
           <div key={row.label} className="flex gap-4 items-start">
@@ -514,15 +515,15 @@ function Slide8Vision() {
           Vision
         </p>
         <h2 className="text-6xl lg:text-7xl font-display tracking-tight text-white mb-8 leading-tight">
-          The credit layer
+          The checking account
           <br />
-          for tokenized equity.
+          that earns by default.
         </h2>
         <div className="space-y-3 mb-10">
           {[
-            "Every stockholder deserves a credit line",
-            "Every wallet deserves embedded liquidity",
-            "Every dollar of equity deserves to earn yield",
+            "Every Sui wallet deserves to earn",
+            "Every payment deserves to be atomic",
+            "Every consumer deserves a UX that just works",
           ].map((item) => (
             <div key={item} className="flex items-center gap-3 text-white/65 text-sm">
               <span
@@ -535,15 +536,15 @@ function Slide8Vision() {
         </div>
         <div className="flex items-center gap-5 text-sm font-mono text-white/35 border-t border-white/15 pt-6">
           <a
-            href="https://vela.fi"
+            href="https://github.com/ayushsingh82/FlowPay"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-white/65 transition-colors"
           >
-            vela.fi ↗
+            github.com/ayushsingh82/FlowPay ↗
           </a>
           <span className="text-white/10">·</span>
-          <span>Robinhood Chain Testnet live</span>
+          <span>Sui Testnet live</span>
         </div>
       </div>
     </div>
@@ -558,7 +559,7 @@ const SLIDES = [
   { component: Slide3Solution, label: "Solution" },
   { component: Slide4WhyNow, label: "Why Now" },
   { component: Slide5Product, label: "Product" },
-  { component: Slide6Business, label: "Business" },
+  { component: Slide6Business, label: "Sponsors" },
   { component: Slide7Roadmap, label: "Roadmap" },
   { component: Slide8Vision, label: "Vision" },
 ];
