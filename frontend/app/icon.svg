@@ -1,0 +1,13 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vela">
+  <defs>
+    <linearGradient id="ico" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D6F95B"/>
+      <stop offset="100%" stop-color="#7DA614"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="#000000"/>
+  <!-- Sail: asymmetric triangle, mast on left edge -->
+  <path d="M 18 50 L 18 12 L 48 50 Z" fill="url(#ico)"/>
+  <!-- Mast extending above and below the sail -->
+  <rect x="16" y="8" width="4" height="48" rx="2" fill="#B6E324"/>
+</svg>

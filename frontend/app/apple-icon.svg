@@ -1,0 +1,11 @@
+<svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vela">
+  <defs>
+    <linearGradient id="ap" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D6F95B"/>
+      <stop offset="100%" stop-color="#7DA614"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="36" fill="#000000"/>
+  <path d="M 50 140 L 50 30 L 134 140 Z" fill="url(#ap)"/>
+  <rect x="46" y="22" width="9" height="136" rx="4.5" fill="#B6E324"/>
+</svg>
