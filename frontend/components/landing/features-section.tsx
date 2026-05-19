@@ -6,31 +6,31 @@ import { useVisible } from "@/hooks/use-visible";
 const features = [
   {
     number: "01",
-    title: "Borrow Without Selling",
+    title: "Spend Without Exiting Yield",
     description:
-      "Deposit tokenized TSLA, AMZN, AMD, PLTR or NFLX into the Vela pool. Get a USDG credit line in seconds. Keep every share of upside while you spend, invest, or compound. No taxable event, no missed rally.",
-    stats: { value: "5", label: "stocks live as collateral" },
+      "Your deposit stays on Scallop, earning APY around the clock. When you pay, FlowPay borrows against the position, swaps, and settles to the merchant — all in a single atomic Sui PTB. Your principal never leaves the vault.",
+    stats: { value: "1 PTB", label: "atomic borrow + swap + send" },
   },
   {
     number: "02",
-    title: "Helmsman Agent",
+    title: "Auto-Earn on Every Asset",
     description:
-      "An off-chain agent continuously prices your collateral against realized volatility, earnings risk and option-implied moves. It pre-warns you, suggests partial repayments, and only triggers protective unwinds when math demands it.",
-    stats: { value: "24/7", label: "risk monitoring" },
+      "Hold a basket — SUI, USDC, BTC, ETH — and every idle unit auto-deposits into the right Scallop pool. sCoins back your vault accounting. APY ticks live in the app. No manual rebalancing, no idle balance.",
+    stats: { value: ">5%", label: "live APY on idle balance" },
   },
   {
     number: "03",
-    title: "USDG Liquidity",
+    title: "Programmable Payments",
     description:
-      "Borrow Paxos' Global Dollar — the native stablecoin of Robinhood Chain. Spend it, bridge it, or yield-farm it. Repay any time, any amount. The line stays open as long as your collateral does.",
-    stats: { value: "USDG", label: "borrow asset" },
+      "Send to contacts, scan QR at merchants, stream payroll, or schedule subscriptions. Every flow is a programmable Sui object — composable with the rest of the ecosystem the moment it leaves your wallet.",
+    stats: { value: "<1s", label: "settlement on Sui testnet" },
   },
   {
     number: "04",
-    title: "Open Reserve Model",
+    title: "OpenZeppelin Safety",
     description:
-      "Every borrow generates protocol revenue split between USDG suppliers and a reserve buffer. No emissions, no token games — sustainable from block one. Onchain accounting, verifiable utilization, transparent rates.",
-    stats: { value: "10%", label: "reserve factor" },
+      "Battle-tested patterns adapted for Sui Move: role-based access control, emergency pause, Pyth oracle staleness guards, and conservative LTV enforced by BorrowGuard. Your money is productive — and protected.",
+    stats: { value: "OZ", label: "audited patterns" },
   },
 ];
 
@@ -143,9 +143,9 @@ export function FeaturesSection() {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               >
-                Hold the stock.
+                Hold the assets.
                 <br />
-                <span className="text-muted-foreground">Spend the upside.</span>
+                <span className="text-muted-foreground">Spend the yield.</span>
               </h2>
             </div>
             <div className="lg:col-span-5 lg:pb-4">
@@ -154,8 +154,8 @@ export function FeaturesSection() {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >
-                Vela turns tokenized equities into productive collateral. Borrow stablecoin
-                liquidity at a fair rate without ever clicking sell.
+                FlowPay turns your Sui wallet into a checking account that earns. Pay
+                anyone, anywhere — and your money keeps compounding while it moves.
               </p>
             </div>
           </div>

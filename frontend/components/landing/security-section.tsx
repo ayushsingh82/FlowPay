@@ -6,36 +6,36 @@ import { Shield, Activity, AlertTriangle, GitBranch } from "lucide-react";
 
 const securityFeatures = [
   {
-    icon: Activity,
-    title: "Per-asset risk parameters",
+    icon: Shield,
+    title: "OpenZeppelin patterns",
     description:
-      "TSLA isn't AMZN. Each collateral type carries its own LTV, liquidation threshold and reserve factor, tuned to 30-day realized volatility.",
+      "Battle-tested patterns adapted to Sui Move — role-based access control, ownership transfers, and upgrade authority on every module.",
     image: "/images/shield.png",
   },
   {
     icon: AlertTriangle,
-    title: "Pre-warning agent",
+    title: "Pyth oracle staleness guards",
     description:
-      "The Helmsman agent watches every open position. It pings you long before your health bar turns red — and suggests the smallest fix.",
+      "Every borrow checks Pyth price feeds for freshness. Stale or missing prices revert the PTB — no silent bad pricing, no risky spend.",
     image: "/images/isolated.jpg",
   },
   {
-    icon: Shield,
-    title: "Soft liquidations first",
+    icon: Activity,
+    title: "Emergency pause",
     description:
-      "Vela tries partial unwinds before full liquidation. The goal is preserving your collateral, not maximizing keeper revenue.",
+      "A multisig-gated switch halts deposits, spends, and borrows atomically. If anything breaks, we freeze the surface before users get hurt.",
     image: "/images/encrypted.jpg",
   },
   {
     icon: GitBranch,
     title: "Non-custodial by construction",
     description:
-      "Your stocks live in an immutable vault you can always exit. No multisig holds them. No team key can pause your withdrawal.",
+      "Your assets live in a FlowVault object you own. No team key can move them. Withdraw to a self-custodial wallet at any time.",
     image: "/images/audit.jpg",
   },
 ];
 
-const properties = ["Onchain settlement", "Open source", "Transparent reserves", "No emissions"];
+const properties = ["Atomic PTBs", "Open source", "Audited patterns", "Non-custodial"];
 
 export function SecuritySection() {
   const { ref: sectionRef, isVisible } = useVisible<HTMLElement>();
@@ -65,18 +65,19 @@ export function SecuritySection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            Liquidation
+            Safety should be
             <br />
-            <span className="text-muted-foreground">should be the last resort.</span>
+            <span className="text-muted-foreground">invisible.</span>
           </h2>
 
           <div
             className={`transition-all duration-1000 delay-100 ${isVisible ? "opacity-100" : "opacity-0"}`}
           >
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-              In TradFi, your prime broker calls you before the margin call. Vela does the same —
-              the <span className="text-[#B6E324]">Helmsman</span> agent watches every position
-              continuously and gives you the smallest possible fix before forced action.
+              A payment app should never lose your money — and you should never have to think
+              about why. FlowPay layers <span className="text-[#BE185D]">four guardrails</span>{" "}
+              on every transaction, every position, every block — so the only thing you notice
+              is the APY counter ticking up.
             </p>
           </div>
         </div>

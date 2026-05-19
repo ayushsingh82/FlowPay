@@ -101,7 +101,7 @@ export function InfrastructureSection() {
                       100% { stroke-dashoffset: 0; opacity: 0; }
                     }
                     .connecting-line {
-                      stroke: #B6E324;
+                      stroke: #BE185D;
                       stroke-width: 1.2;
                       fill: none;
                       stroke-dasharray: 1000;
@@ -132,7 +132,7 @@ export function InfrastructureSection() {
               {[...Array(20)].map((_, i) => (
                 <div
                   key={i}
-                  className="absolute w-1.5 h-1.5 rounded-full bg-[#B6E324]"
+                  className="absolute w-1.5 h-1.5 rounded-full bg-[#BE185D]"
                   style={{
                     left: `${10 + (i % 5) * 20}%`,
                     top: `${10 + Math.floor(i / 5) * 25}%`,
@@ -186,7 +186,7 @@ export function InfrastructureSection() {
             >
               <div className="flex items-center gap-2 mb-3">
                 <span className={`w-2 h-2 rounded-full transition-colors ${
-                  activeRegion === index ? "bg-[#B6E324]" : "bg-foreground/20"
+                  activeRegion === index ? "bg-[#BE185D]" : "bg-foreground/20"
                 }`} />
                 <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
                   {region.status}

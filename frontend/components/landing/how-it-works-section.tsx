@@ -7,37 +7,41 @@ const steps = [
   {
     number: "01",
     title: "Deposit",
-    subtitle: "your stock",
+    subtitle: "any supported asset",
     description:
-      "Approve and supply any whitelisted tokenized equity to the CollateralVault. Each asset gets a per-name LTV based on its 30-day realized volatility — TSLA borrows less than AMZN, by design.",
-    code: `await vela.deposit(
-  TSLA,          // 0xC9f9c86933092BbbfFF3CCb4b105A4A94bf3Bd4E
-  10n * 10n**18n // 10 TSLA shares
-);
-// Position opened. Health: 100%. Borrow capacity: $X.`,
+      "Top up FlowPay with SUI, USDC, BTC, or ETH. Your deposit is wrapped into a FlowVault object and auto-routed into the matching Scallop pool. APY starts ticking the moment the transaction finalizes.",
+    code: `await flowpay.deposit({
+  asset: USDC,
+  amount: 100n * 10n**6n   // 100 USDC
+});
+// FlowVault opened. Scallop sCoins minted.
+// APY: 5.2% on USDC.`,
   },
   {
     number: "02",
-    title: "Borrow",
-    subtitle: "USDG against it",
+    title: "Spend",
+    subtitle: "without exiting yield",
     description:
-      "Draw USDG up to your borrow capacity. Variable interest accrues per second based on pool utilization. No fixed term — repay any amount, any time. The line stays open as long as collateral does.",
-    code: `await vela.borrow(
-  3_000n * 10n**6n  // 3,000 USDG
-);
-// Health: 78%. Borrow APR: 4.6%.
-// Helmsman agent now watching this position.`,
+      "Scan a QR or tap a contact. SmartRouter picks the best asset to source from your vault, borrows against your Scallop position so principal stays compounding, and settles to the merchant — all in a single PTB.",
+    code: `await flowpay.pay({
+  to: merchant,
+  amount: 20n * 10n**6n   // 20 USDC
+});
+// One atomic PTB:
+//   borrow → swap → send → emit.
+// Your APY counter never blinked.`,
   },
   {
     number: "03",
-    title: "Repay",
-    subtitle: "and withdraw",
+    title: "Earn",
+    subtitle: "while it sits",
     description:
-      "Repay USDG to free collateral. Withdraw your stock to your wallet. The Helmsman agent only liquidates if your health drops below the asset's protective threshold — and tells you long before it does.",
-    code: `await vela.repay(3_000n * 10n**6n);
-await vela.withdraw(TSLA, 10n * 10n**18n);
-// Position closed. Stock back in your wallet.
-// You never sold a share.`,
+      "Incoming payments land back in the FlowVault and auto-deposit. Outstanding borrows auto-repay from receipts. Withdraw to a self-custodial wallet any time — no lockups, no managed accounts.",
+    code: `for await (const tick of flowpay.watchVault(user)) {
+  console.log(tick.balance, tick.apy, tick.borrowed);
+}
+// Balance: $128.41 · APY: 5.2%
+// Borrowed: $0 (auto-repaid on receipt).`,
   },
 ];
 
@@ -78,8 +82,8 @@ export function HowItWorksSection() {
               }`}
             >
               <span className="block">Deposit.</span>
-              <span className="block text-white/60">Borrow.</span>
-              <span className="block text-white/35">Repay.</span>
+              <span className="block text-white/60">Spend.</span>
+              <span className="block text-white/35">Earn.</span>
             </h2>
           </div>
 
@@ -113,14 +117,14 @@ export function HowItWorksSection() {
               <div className="flex items-center gap-4 mb-8">
                 <span
                   className={`text-4xl font-display transition-colors duration-300 ${
-                    activeStep === index ? "text-[#B6E324]" : "text-white/20"
+                    activeStep === index ? "text-[#BE185D]" : "text-white/20"
                   }`}
                 >
                   {step.number}
                 </span>
                 <div className="flex-1 h-px bg-white/10 overflow-hidden">
                   {activeStep === index && (
-                    <div className="h-full bg-[#B6E324]/50 animate-progress" />
+                    <div className="h-full bg-[#BE185D]/50 animate-progress" />
                   )}
                 </div>
               </div>
@@ -143,7 +147,7 @@ export function HowItWorksSection() {
               )}
 
               <div
-                className={`absolute bottom-0 left-0 right-0 h-1 bg-[#B6E324] transition-transform duration-500 origin-left ${
+                className={`absolute bottom-0 left-0 right-0 h-1 bg-[#BE185D] transition-transform duration-500 origin-left ${
                   activeStep === index ? "scale-x-100" : "scale-x-0"
                 }`}
               />
