@@ -1,0 +1,49 @@
+<svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vela">
+  <defs>
+    <linearGradient id="sailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0FF66"/>
+      <stop offset="50%" stop-color="#B6E324"/>
+      <stop offset="100%" stop-color="#6B9912"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0C0E12"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Charcoal-black rounded base -->
+  <rect width="320" height="320" rx="60" fill="url(#bgGrad)"/>
+
+  <!-- Outer lime ring so the badge reads on white backgrounds -->
+  <rect x="2.5" y="2.5" width="315" height="315" rx="57.5" fill="none" stroke="#B6E324" stroke-opacity="0.55" stroke-width="2.5"/>
+
+  <!-- Horizon line — subtle, anchors the mark -->
+  <rect x="44" y="252" width="232" height="3" rx="1.5" fill="#B6E324" fill-opacity="0.3"/>
+
+  <!-- Mast: clean vertical bar extending above and below the sail -->
+  <rect x="92" y="36" width="10" height="232" rx="5" fill="#B6E324"/>
+
+  <!-- Mast cap (top finial) -->
+  <circle cx="97" cy="36" r="7" fill="#B6E324"/>
+
+  <!-- Sail: asymmetric triangle billowed to the right -->
+  <!-- Top-left at masthead, base-left at mast bottom, point billowing out to the right -->
+  <path
+    d="M 102 60
+       L 102 252
+       L 252 252
+       Q 230 165 188 90
+       Q 165 60 130 60
+       Z"
+    fill="url(#sailGrad)"
+  />
+
+  <!-- Light catch on the sail — thin highlight on the leading edge -->
+  <path
+    d="M 102 60 L 102 252"
+    stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="2" stroke-linecap="round"
+  />
+
+  <!-- Boom (bottom rigging) -->
+  <rect x="100" y="248" width="156" height="6" rx="3" fill="#B6E324"/>
+</svg>
