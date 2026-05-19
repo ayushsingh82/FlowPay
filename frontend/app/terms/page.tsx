@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Terms of Service — Vela" };
+export const metadata = { title: "Terms of Service — FlowPay" };
 
 export default function TermsPage() {
   return (
@@ -10,14 +10,14 @@ export default function TermsPage() {
           ← Back to home
         </Link>
 
-        <h1 className="text-4xl font-display mb-2">Terms of <span className="text-[#B6E324]">Service</span></h1>
+        <h1 className="text-4xl font-display mb-2">Terms of <span className="text-[#BE185D]">Service</span></h1>
         <p className="text-white/40 text-sm mb-12">Last updated: May 2026</p>
 
         <div className="prose prose-invert prose-sm max-w-none space-y-10 text-white/70 leading-relaxed">
           <section>
             <h2 className="text-lg font-medium text-white mb-3">1. Protocol access</h2>
             <p>
-              Vela is an open-source, permissionless protocol deployed on Robinhood Chain. Access to the smart
+              FlowPay is an open-source, permissionless protocol deployed on Sui. Access to the smart
               contracts is available to anyone with a compatible wallet. The frontend interface is provided as a
               convenience and may be modified or taken offline at any time.
             </p>
@@ -35,7 +35,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-medium text-white mb-3">3. Prohibited use</h2>
             <p>
-              You may not use Vela to violate applicable laws, including sanctions regulations in your
+              You may not use FlowPay to violate applicable laws, including sanctions regulations in your
               jurisdiction. The protocol is designed for lawful financial privacy, not for evading legal obligations.
             </p>
           </section>
@@ -43,7 +43,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-lg font-medium text-white mb-3">4. Limitation of liability</h2>
             <p>
-              To the maximum extent permitted by law, the contributors of Vela shall not be liable for any
+              To the maximum extent permitted by law, the contributors of FlowPay shall not be liable for any
               direct, indirect, incidental, or consequential damages arising from use of the protocol.
             </p>
           </section>
@@ -53,7 +53,7 @@ export default function TermsPage() {
             <p>
               All source code is released under the MIT License. You are free to fork, modify, and deploy your own
               instance. See the{" "}
-              <a href="https://github.com/vela-protocol/vela" className="text-[#B6E324] hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/flowpay/flowpay" className="text-[#BE185D] hover:underline" target="_blank" rel="noopener noreferrer">
                 GitHub repository
               </a>{" "}
               for details.

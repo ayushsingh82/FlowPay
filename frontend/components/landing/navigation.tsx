@@ -8,7 +8,7 @@ import Image from "next/image";
 const navLinks = [
   { name: "Protocol", href: "#features" },
   { name: "How it works", href: "#how-it-works" },
-  { name: "Risk", href: "#security" },
+  { name: "Safety", href: "#security" },
   { name: "Developers", href: "#developers" },
 ];
 
@@ -45,7 +45,7 @@ export function Navigation() {
           <a href="#" className="flex items-center gap-2 group">
             <Image
               src="/logo.svg"
-              alt="Vela"
+              alt="FlowPay"
               width={28}
               height={28}
               className={`transition-all duration-500 ${isScrolled ? "w-6 h-6" : "w-7 h-7"}`}
@@ -55,7 +55,7 @@ export function Navigation() {
                 isScrolled ? "text-xl text-foreground" : "text-2xl text-white"
               }`}
             >
-              Ve<span className="text-[#B6E324]">la</span>
+              Flow<span className="text-[#BE185D]">Pay</span>
             </span>
           </a>
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Security Disclosure — Vela" };
+export const metadata = { title: "Security Disclosure — FlowPay" };
 
 export default function SecurityPage() {
   return (
@@ -10,21 +10,21 @@ export default function SecurityPage() {
           ← Back to home
         </Link>
 
-        <h1 className="text-4xl font-display mb-2">Security <span className="text-[#B6E324]">Disclosure</span></h1>
+        <h1 className="text-4xl font-display mb-2">Security <span className="text-[#BE185D]">Disclosure</span></h1>
         <p className="text-white/40 text-sm mb-12">Responsible disclosure policy</p>
 
         <div className="prose prose-invert prose-sm max-w-none space-y-10 text-white/70 leading-relaxed">
           <section>
             <h2 className="text-lg font-medium text-white mb-3">Reporting a vulnerability</h2>
             <p>
-              If you discover a security vulnerability in the Vela smart contracts, circuits, or frontend,
+              If you discover a security vulnerability in the FlowPay smart contracts, circuits, or frontend,
               please report it responsibly. Do not open a public GitHub issue for security-sensitive bugs.
             </p>
             <p className="mt-3">
               Open a private security advisory on{" "}
               <a
-                href="https://github.com/vela-protocol/vela/security/advisories/new"
-                className="text-[#B6E324] hover:underline"
+                href="https://github.com/flowpay/flowpay/security/advisories/new"
+                className="text-[#BE185D] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -66,7 +66,7 @@ export default function SecurityPage() {
             <h2 className="text-lg font-medium text-white mb-3">Audit reports</h2>
             <p>
               See the{" "}
-              <a href="/docs/ai-security-report" className="text-[#B6E324] hover:underline">
+              <a href="/docs/ai-security-report" className="text-[#BE185D] hover:underline">
                 AI security report
               </a>{" "}
               in the documentation for a full analysis of the protocol's security properties.

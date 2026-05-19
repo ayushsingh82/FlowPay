@@ -28,7 +28,7 @@ export function CtaSection() {
           <div
             className="absolute inset-0 opacity-[0.07] pointer-events-none"
             style={{
-              background: `radial-gradient(500px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(182,227,36,0.6), transparent 50%)`,
+              background: `radial-gradient(500px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(190, 24, 93,0.6), transparent 50%)`,
             }}
           />
 
@@ -40,14 +40,15 @@ export function CtaSection() {
                 </span>
 
                 <h2 className="text-6xl md:text-7xl lg:text-[72px] font-display tracking-tight mb-8 leading-[0.95]">
-                  Your first credit line
+                  Your first earning send
                   <br />
-                  <span className="text-muted-foreground">opens in one tx.</span>
+                  <span className="text-muted-foreground">takes one tap.</span>
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Connect a wallet, deposit any of the five supported stocks, draw USDG.
-                  No KYC, no underwriting forms, no broker on the phone.
+                  Sign in with Google via zkLogin, top up with any supported asset, and pay.
+                  Your money keeps earning the entire time — no withdrawals, no swaps to
+                  manage, no broker on the phone.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -67,7 +68,7 @@ export function CtaSection() {
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
-                  Robinhood Chain Testnet · Open source · Non-custodial
+                  Sui Testnet · Open source · Non-custodial
                 </p>
               </div>
 

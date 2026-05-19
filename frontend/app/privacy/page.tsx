@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const metadata = { title: "Privacy Policy — Vela" };
+export const metadata = { title: "Privacy Policy — FlowPay" };
 
 export default function PrivacyPage() {
   return (
@@ -10,16 +10,16 @@ export default function PrivacyPage() {
           ← Back to home
         </Link>
 
-        <h1 className="text-4xl font-display mb-2">Privacy <span className="text-[#B6E324]">Policy</span></h1>
+        <h1 className="text-4xl font-display mb-2">Privacy <span className="text-[#BE185D]">Policy</span></h1>
         <p className="text-white/40 text-sm mb-12">Last updated: May 2026</p>
 
         <div className="prose prose-invert prose-sm max-w-none space-y-10 text-white/70 leading-relaxed">
           <section>
             <h2 className="text-lg font-medium text-white mb-3">1. Overview</h2>
             <p>
-              Vela is a non-custodial credit protocol. The smart contracts and frontend do not collect personally
+              FlowPay is a non-custodial credit protocol. The smart contracts and frontend do not collect personally
               identifiable information. Wallet addresses are public by virtue of being onchain; nothing else is sent
-              to any server operated by Vela. The Helmsman risk agent operates on public chain state.
+              to any server operated by FlowPay. The SmartRouter risk agent operates on public chain state.
             </p>
           </section>
 
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-medium text-white mb-3">3. On-chain data</h2>
             <p>
-              Interactions with the Vela smart contracts are recorded on Robinhood Chain and are publicly visible on
+              Interactions with the FlowPay smart contracts are recorded on Sui and are publicly visible on
               the blockchain. The protocol is specifically designed so that these on-chain records reveal no information
               about sender identity, recipient identity, or transaction amounts.
             </p>
@@ -55,8 +55,8 @@ export default function PrivacyPage() {
             <p>
               We may update this policy as the protocol evolves. Material changes will be announced via our official
               Twitter account{" "}
-              <a href="https://x.com/vela_protocol" className="text-[#B6E324] hover:underline" target="_blank" rel="noopener noreferrer">
-                @vela_protocol
+              <a href="https://x.com/flowpay" className="text-[#BE185D] hover:underline" target="_blank" rel="noopener noreferrer">
+                @flowpay
               </a>
               .
             </p>
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-medium text-white mb-3">6. Contact</h2>
             <p>
               Questions about this policy? Open an issue on{" "}
-              <a href="https://github.com/vela-protocol/vela" className="text-[#B6E324] hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/flowpay/flowpay" className="text-[#BE185D] hover:underline" target="_blank" rel="noopener noreferrer">
                 GitHub
               </a>
               .

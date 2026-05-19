@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 
-const words = ["sold", "spent", "liquidated", "sacrificed"];
+const words = ["idle", "wasted", "frozen", "sleeping"];
 
 function BlurWord({ word, trigger }: { word: string; trigger: number }) {
   const letters = word.split("");
@@ -58,7 +58,7 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trigger]);
 
-  const gradientColors = ["#B6E324", "#a78bfa", "#fbbf24", "#B6E324"];
+  const gradientColors = ["#BE185D", "#a78bfa", "#fbbf24", "#BE185D"];
 
   return (
     <>
@@ -156,12 +156,12 @@ export function HeroSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="inline-flex items-center gap-2 border border-[#B6E324]/25 bg-[#B6E324]/5 px-3 py-1.5 text-xs font-mono text-[#B6E324]">
+            <span className="inline-flex items-center gap-2 border border-[#BE185D]/25 bg-[#BE185D]/5 px-3 py-1.5 text-xs font-mono text-[#BE185D]">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#B6E324] opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#B6E324]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#BE185D] opacity-60" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#BE185D]" />
               </span>
-              Live on Robinhood Chain Testnet
+              Live on Sui Testnet
             </span>
           </div>
 
@@ -171,7 +171,7 @@ export function HeroSection() {
             }`}
           >
             <span className="text-sm font-mono text-white/60">
-              Stock-collateralized credit on Arbitrum
+              Multi-asset payment wallet on Sui
             </span>
           </div>
 
@@ -181,7 +181,7 @@ export function HeroSection() {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >
-              <span className="block whitespace-nowrap">Your stocks,</span>
+              <span className="block whitespace-nowrap">Your money,</span>
               <span className="block whitespace-nowrap">
                 never{" "}
                 <span className="relative inline-block">
@@ -197,8 +197,9 @@ export function HeroSection() {
             }`}
           >
             <p className="text-lg text-white/55 max-w-md leading-relaxed">
-              Borrow USDG against your tokenized TSLA, AMZN, AMD and more — keep the
-              upside, get the cash. Agent-managed risk on Robinhood Chain.
+              Hold a basket of assets on Sui. Every idle dollar auto-earns on
+              Scallop. Spend without ever exiting your yield position — all in one
+              atomic PTB.
             </p>
           </div>
         </div>
@@ -211,9 +212,9 @@ export function HeroSection() {
       >
         <div className="max-w-[1400px] mx-auto flex items-start gap-10 lg:gap-20">
           {[
-            { value: "$700B", label: "TradFi market we mirror" },
-            { value: "5 stocks", label: "live as collateral on testnet" },
-            { value: "<5%", label: "target borrow APR on USDG" },
+            { value: "1 PTB", label: "atomic borrow + swap + send" },
+            { value: "4 assets", label: "in the default basket on testnet" },
+            { value: ">5% APY", label: "auto-earned on idle balance" },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-2">
               <span className="text-3xl lg:text-4xl font-display text-white">{stat.value}</span>

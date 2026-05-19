@@ -6,19 +6,19 @@ const DOCS_URL = "/docs";
 
 const footerLinks = {
   Protocol: [
-    { name: "Borrow without selling", href: "#features" },
+    { name: "Spend without exiting yield", href: "#features" },
     { name: "How it works", href: "#how-it-works" },
-    { name: "Risk model", href: "#security" },
+    { name: "Safety model", href: "#security" },
     { name: "Pitch deck", href: "/pitch" },
   ],
   Developers: [
     { name: "Documentation", href: DOCS_URL },
-    { name: "Contracts overview", href: `${DOCS_URL}/contracts-overview` },
+    { name: "Move modules", href: `${DOCS_URL}/contracts-overview` },
     { name: "Network details", href: `${DOCS_URL}/network` },
-    { name: "GitHub", href: "https://github.com/vela-protocol/vela", external: true },
+    { name: "GitHub", href: "https://github.com/flowpay/flowpay", external: true },
   ],
   Community: [
-    { name: "Twitter", href: "https://x.com/vela_protocol", external: true },
+    { name: "Twitter", href: "https://x.com/flowpay", external: true },
     { name: "Discord", href: "#", badge: "Coming soon" },
   ],
   Legal: [
@@ -29,8 +29,8 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: "Twitter", href: "https://x.com/vela_protocol" },
-  { name: "GitHub", href: "https://github.com/vela-protocol/vela" },
+  { name: "Twitter", href: "https://x.com/flowpay" },
+  { name: "GitHub", href: "https://github.com/flowpay/flowpay" },
 ];
 
 export function FooterSection() {
@@ -53,13 +53,13 @@ export function FooterSection() {
             <div className="col-span-2">
               <a href="/" className="inline-flex items-center gap-2 mb-6">
                 <span className="text-2xl font-display text-white">
-                  Ve<span className="text-[#B6E324]">la</span>
+                  Flow<span className="text-[#BE185D]">Pay</span>
                 </span>
               </a>
 
               <p className="text-white/50 leading-relaxed mb-8 max-w-xs text-sm">
-                Stock-collateralized credit lines on Robinhood Chain. Borrow USDG against
-                tokenized equities. Built on Arbitrum, agent-managed risk.
+                A multi-asset payment wallet on Sui. Hold a basket, auto-earn on Scallop,
+                spend through DeepBook — atomic in one PTB. Built for Sui Overflow 2026.
               </p>
 
               <div className="flex gap-6">
@@ -105,14 +105,14 @@ export function FooterSection() {
 
         <div className="py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/30">
-            &copy; 2026 Vela. Open source under MIT.
+            &copy; 2026 FlowPay. Open source under MIT.
           </p>
           <div className="flex items-center gap-6 text-sm text-white/30">
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#B6E324]" />
-              Robinhood Chain Testnet
+              <span className="w-2 h-2 rounded-full bg-[#BE185D]" />
+              Sui Testnet
             </span>
-            <span className="font-mono">Chain ID 46630</span>
+            <span className="font-mono">Sui Overflow 2026</span>
           </div>
         </div>
       </div>

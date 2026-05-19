@@ -4,40 +4,39 @@ import { useVisible } from "@/hooks/use-visible";
 
 const features = [
   {
-    title: "viem + wagmi",
-    description: "Typed Robinhood Chain client. Drop the chain into your app in 5 lines.",
+    title: "@mysten/sui SDK",
+    description: "Typed Sui client. Build PTBs that compose deposit, borrow, swap and send in 5 lines.",
   },
   {
-    title: "REST risk API",
-    description: "Query a position's health, projected liquidation price, and Helmsman alerts.",
+    title: "Vault read API",
+    description: "Query a user's basket, live APY, borrow capacity, and outstanding obligations.",
   },
   {
     title: "Webhook events",
-    description: "Subscribe to Deposit, Borrow, Repay, Liquidation events with HMAC signing.",
+    description: "Subscribe to Deposit, Spend, Earn, Repay events with HMAC-signed deliveries.",
   },
   {
-    title: "Open contracts",
-    description: "LendingPool, CollateralVault, OracleAdapter — all verified on testnet.",
+    title: "Open Move modules",
+    description: "FlowVault, SmartRouter, BorrowGuard — all published & verifiable on testnet.",
   },
 ];
 
-const codeSnippet = `import { createWalletClient, custom } from "viem";
-import { vela, LENDING_POOL, TSLA, USDG } from "@vela/sdk";
+const codeSnippet = `import { SuiClient, getFullnodeUrl } from "@mysten/sui/client";
+import { Transaction } from "@mysten/sui/transactions";
+import { flowpay, FLOW_VAULT, USDC } from "@flowpay/sdk";
 
-const wallet = createWalletClient({
-  chain: vela.chains.robinhoodTestnet,
-  transport: custom(window.ethereum),
-});
+const client = new SuiClient({ url: getFullnodeUrl("testnet") });
 
-// 1. Deposit 10 TSLA as collateral
-await vela.deposit({ wallet, asset: TSLA, amount: 10n * 10n ** 18n });
+// 1. Deposit 100 USDC into the FlowVault
+await flowpay.deposit({ client, asset: USDC, amount: 100_000_000n });
 
-// 2. Borrow 3,000 USDG
-await vela.borrow({ wallet, amount: 3_000n * 10n ** 6n });
+// 2. Pay a merchant in one atomic PTB
+//    (borrow → swap → send → emit)
+await flowpay.pay({ client, to: merchant, amount: 20_000_000n });
 
-// 3. Stream health updates from the Helmsman agent
-for await (const tick of vela.watchHealth({ user: wallet.account.address })) {
-  console.log(tick.health, tick.liqPrice, tick.suggestion);
+// 3. Stream balance + APY + borrow updates
+for await (const tick of flowpay.watchVault({ user })) {
+  console.log(tick.balance, tick.apy, tick.borrowed);
 }`;
 
 export function DevelopersSection() {
@@ -70,7 +69,7 @@ export function DevelopersSection() {
             For developers
           </span>
           <h2 className="text-6xl md:text-7xl lg:text-[128px] font-display tracking-tight leading-[0.9]">
-            Compose credit
+            Compose payments
             <br />
             <span className="text-muted-foreground">into anything.</span>
           </h2>
@@ -83,8 +82,8 @@ export function DevelopersSection() {
             }`}
           >
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-md">
-              Wallets, brokerages, payment apps — any product where users hold equity exposure
-              can offer instant USDG liquidity on top of Vela.
+              Wallets, merchants, payroll providers, subscription apps — any product on Sui
+              that touches money can embed FlowPay&apos;s vault and spend primitives.
             </p>
             <div className="grid grid-cols-2 gap-6">
               {features.map((feature, index) => (
@@ -109,7 +108,7 @@ export function DevelopersSection() {
                 Read the docs →
               </a>
               <a
-                href="https://github.com/vela-protocol/vela"
+                href="https://github.com/flowpay/flowpay"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"

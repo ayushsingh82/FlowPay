@@ -200,11 +200,11 @@
   .word-gradient {
     background: linear-gradient(
       45deg,
-      #B6E324 0%,
+      #BE185D 0%,
       #a78bfa 25%,
-      #B6E324 50%,
+      #BE185D 50%,
       #fbbf24 75%,
-      #B6E324 100%
+      #BE185D 100%
     );
     background-size: 300% 300%;
     background-clip: text;
