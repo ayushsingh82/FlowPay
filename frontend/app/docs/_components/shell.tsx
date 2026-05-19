@@ -8,7 +8,7 @@ const sections = [
   {
     group: "Overview",
     items: [
-      { slug: "", label: "What is Vela?" },
+      { slug: "", label: "What is FlowPay?" },
       { slug: "usecases", label: "Use cases" },
       { slug: "architecture", label: "Architecture" },
     ],
@@ -16,29 +16,29 @@ const sections = [
   {
     group: "Protocol",
     items: [
-      { slug: "collateral", label: "Collateral & LTV" },
-      { slug: "borrow", label: "Borrowing USDG" },
-      { slug: "repay", label: "Repay & withdraw" },
-      { slug: "liquidations", label: "Liquidations" },
-      { slug: "interest-model", label: "Interest model" },
+      { slug: "vault", label: "FlowVault & assets" },
+      { slug: "spend", label: "The atomic spend PTB" },
+      { slug: "earn", label: "Earn & auto-yield" },
+      { slug: "borrow", label: "Borrow against position" },
       { slug: "oracle", label: "Price oracle" },
+      { slug: "pause", label: "Emergency pause" },
     ],
   },
   {
-    group: "Agent",
+    group: "Sponsors",
     items: [
-      { slug: "agent-overview", label: "Helmsman overview" },
-      { slug: "agent-risk", label: "Risk monitoring" },
-      { slug: "agent-actions", label: "Protective actions" },
+      { slug: "scallop", label: "Scallop integration" },
+      { slug: "deepbook", label: "DeepBook (coming soon)" },
+      { slug: "openzeppelin", label: "OpenZeppelin patterns" },
     ],
   },
   {
-    group: "Contracts",
+    group: "Modules",
     items: [
       { slug: "contracts-overview", label: "Overview" },
-      { slug: "contracts-pool", label: "LendingPool" },
-      { slug: "contracts-vault", label: "CollateralVault" },
-      { slug: "contracts-liquidator", label: "Liquidator" },
+      { slug: "contracts-vault", label: "FlowVault" },
+      { slug: "contracts-router", label: "SmartRouter" },
+      { slug: "contracts-guard", label: "BorrowGuard" },
       { slug: "contracts-deployments", label: "Deployments" },
     ],
   },
@@ -53,7 +53,7 @@ const sections = [
   {
     group: "Resources",
     items: [
-      { slug: "security", label: "Security model" },
+      { slug: "security", label: "Safety model" },
       { slug: "faq", label: "FAQ" },
     ],
   },
@@ -91,7 +91,7 @@ function Sidebar() {
                     href={item.slug === "" ? "/docs" : `/docs/${item.slug}`}
                     className={`block text-sm px-3 py-1.5 transition-colors rounded-sm ${
                       isActive(item.slug)
-                        ? "text-[#B6E324] bg-[#B6E324]/[0.08]"
+                        ? "text-[#BE185D] bg-[#BE185D]/[0.08]"
                         : "text-white/65 hover:text-white/90 hover:bg-white/[0.05]"
                     }`}
                   >
@@ -125,13 +125,13 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
             >
               <Image
                 src="/logo.svg"
-                alt="Vela"
+                alt="FlowPay"
                 width={22}
                 height={22}
                 className="opacity-80 hover:opacity-100 transition-opacity"
               />
               <span>
-                Ve<span className="text-[#B6E324]">la</span>
+                Flow<span className="text-[#BE185D]">Pay</span>
               </span>
             </Link>
             <span className="text-white/15">/</span>
@@ -139,7 +139,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
           </div>
           <div className="flex items-center gap-5">
             <a
-              href="https://github.com/vela-protocol/vela"
+              href="https://github.com/flowpay/flowpay"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-white/35 hover:text-white/70 transition-colors font-mono"

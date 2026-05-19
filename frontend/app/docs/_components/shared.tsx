@@ -42,7 +42,7 @@ export function Callout({
   const styles = {
     info: "border-blue-500/20 bg-blue-500/5 text-blue-300/70",
     warn: "border-yellow-500/20 bg-yellow-500/5 text-yellow-300/70",
-    tip:  "border-[#B6E324]/20 bg-[#B6E324]/5 text-[#B6E324]/75",
+    tip:  "border-[#BE185D]/20 bg-[#BE185D]/5 text-[#BE185D]/75",
   };
   const icons = { info: "ℹ", warn: "⚠", tip: "✦" };
   return (
@@ -70,26 +70,26 @@ export function ShieldFlowDiagram() {
     <svg viewBox="0 0 720 220" className="w-full max-w-2xl" aria-label="Shield flow">
       <defs>
         <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
-          <path d="M0,0 L0,6 L7,3 z" fill="rgba(182,227,36,0.7)" />
+          <path d="M0,0 L0,6 L7,3 z" fill="rgba(190, 24, 93,0.7)" />
         </marker>
       </defs>
       <rect x="16" y="85" width="120" height="50" rx="3" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
       <text x="76" y="108" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="12" fontFamily="monospace">User</text>
       <text x="76" y="124" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace">spending key</text>
-      <line x1="136" y1="110" x2="196" y2="110" stroke="rgba(182,227,36,0.5)" strokeWidth="1.5" markerEnd="url(#arr)" />
+      <line x1="136" y1="110" x2="196" y2="110" stroke="rgba(190, 24, 93,0.5)" strokeWidth="1.5" markerEnd="url(#arr)" />
       <text x="166" y="104" textAnchor="middle" fill="rgba(255,255,255,0.25)" fontSize="8.5" fontFamily="monospace">sdk.shield()</text>
-      <rect x="196" y="72" width="148" height="76" rx="3" fill="none" stroke="rgba(182,227,36,0.25)" strokeWidth="1" />
-      <text x="270" y="102" textAnchor="middle" fill="rgba(182,227,36,0.85)" fontSize="12" fontFamily="monospace">SDK</text>
+      <rect x="196" y="72" width="148" height="76" rx="3" fill="none" stroke="rgba(190, 24, 93,0.25)" strokeWidth="1" />
+      <text x="270" y="102" textAnchor="middle" fill="rgba(190, 24, 93,0.85)" fontSize="12" fontFamily="monospace">SDK</text>
       <text x="270" y="118" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace">generate ZK proof</text>
       <text x="270" y="132" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace">compute commitment</text>
-      <line x1="344" y1="110" x2="404" y2="110" stroke="rgba(182,227,36,0.5)" strokeWidth="1.5" markerEnd="url(#arr)" />
+      <line x1="344" y1="110" x2="404" y2="110" stroke="rgba(190, 24, 93,0.5)" strokeWidth="1.5" markerEnd="url(#arr)" />
       <text x="374" y="104" textAnchor="middle" fill="rgba(255,255,255,0.25)" fontSize="8.5" fontFamily="monospace">shield(params, proof)</text>
       <rect x="404" y="64" width="148" height="92" rx="3" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
       <text x="478" y="94" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="12" fontFamily="monospace">PrivacyPool</text>
       <text x="478" y="110" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace">verify proof</text>
       <text x="478" y="124" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace">insert Merkle leaf</text>
       <text x="478" y="138" textAnchor="middle" fill="rgba(255,255,255,0.3)" fontSize="9" fontFamily="monospace">take token custody</text>
-      <line x1="552" y1="110" x2="610" y2="110" stroke="rgba(182,227,36,0.5)" strokeWidth="1.5" markerEnd="url(#arr)" />
+      <line x1="552" y1="110" x2="610" y2="110" stroke="rgba(190, 24, 93,0.5)" strokeWidth="1.5" markerEnd="url(#arr)" />
       <rect x="610" y="85" width="92" height="50" rx="3" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
       <text x="656" y="108" textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize="12" fontFamily="monospace">Robinhood Chain</text>
       <text x="656" y="123" textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="9" fontFamily="monospace">finalized</text>
@@ -103,8 +103,8 @@ export function MerkleTreeDiagram() {
     <svg viewBox="0 0 480 200" className="w-full max-w-lg" aria-label="Merkle tree">
       {leaves.map((l, i) => (
         <g key={l}>
-          <rect x={28 + i * 108} y="148" width="80" height="34" rx="3" fill="none" stroke="rgba(182,227,36,0.3)" strokeWidth="1" />
-          <text x={68 + i * 108} y="170" textAnchor="middle" fill="rgba(182,227,36,0.75)" fontSize="11" fontFamily="monospace">{l}</text>
+          <rect x={28 + i * 108} y="148" width="80" height="34" rx="3" fill="none" stroke="rgba(190, 24, 93,0.3)" strokeWidth="1" />
+          <text x={68 + i * 108} y="170" textAnchor="middle" fill="rgba(190, 24, 93,0.75)" fontSize="11" fontFamily="monospace">{l}</text>
         </g>
       ))}
       {[["H(C₀,C₁)", 82], ["H(C₂,C₃)", 298]].map(([label, x]) => (
@@ -129,20 +129,20 @@ export function SpendFlowDiagram() {
     <svg viewBox="0 0 680 180" className="w-full max-w-2xl" aria-label="Spend flow">
       <defs>
         <marker id="arr2" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
-          <path d="M0,0 L0,6 L7,3 z" fill="rgba(182,227,36,0.7)" />
+          <path d="M0,0 L0,6 L7,3 z" fill="rgba(190, 24, 93,0.7)" />
         </marker>
       </defs>
-      <rect x="8" y="32" width="100" height="36" rx="3" fill="none" stroke="rgba(182,227,36,0.25)" strokeWidth="1" />
-      <text x="58" y="52" textAnchor="middle" fill="rgba(182,227,36,0.65)" fontSize="10" fontFamily="monospace">Note A (in)</text>
-      <rect x="8" y="90" width="100" height="36" rx="3" fill="none" stroke="rgba(182,227,36,0.25)" strokeWidth="1" />
-      <text x="58" y="110" textAnchor="middle" fill="rgba(182,227,36,0.65)" fontSize="10" fontFamily="monospace">Note B (in)</text>
+      <rect x="8" y="32" width="100" height="36" rx="3" fill="none" stroke="rgba(190, 24, 93,0.25)" strokeWidth="1" />
+      <text x="58" y="52" textAnchor="middle" fill="rgba(190, 24, 93,0.65)" fontSize="10" fontFamily="monospace">Note A (in)</text>
+      <rect x="8" y="90" width="100" height="36" rx="3" fill="none" stroke="rgba(190, 24, 93,0.25)" strokeWidth="1" />
+      <text x="58" y="110" textAnchor="middle" fill="rgba(190, 24, 93,0.65)" fontSize="10" fontFamily="monospace">Note B (in)</text>
       <line x1="108" y1="68" x2="160" y2="90" stroke="rgba(255,255,255,0.12)" strokeWidth="1" markerEnd="url(#arr2)" />
       <line x1="108" y1="108" x2="160" y2="90" stroke="rgba(255,255,255,0.12)" strokeWidth="1" markerEnd="url(#arr2)" />
       <rect x="160" y="55" width="130" height="72" rx="3" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="1" />
       <text x="225" y="82" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="11" fontFamily="monospace">Spend circuit</text>
       <text x="225" y="97" textAnchor="middle" fill="rgba(255,255,255,0.28)" fontSize="8.5" fontFamily="monospace">verify membership</text>
       <text x="225" y="111" textAnchor="middle" fill="rgba(255,255,255,0.28)" fontSize="8.5" fontFamily="monospace">conserve value</text>
-      <line x1="290" y1="91" x2="350" y2="91" stroke="rgba(182,227,36,0.5)" strokeWidth="1.5" markerEnd="url(#arr2)" />
+      <line x1="290" y1="91" x2="350" y2="91" stroke="rgba(190, 24, 93,0.5)" strokeWidth="1.5" markerEnd="url(#arr2)" />
       <rect x="350" y="55" width="130" height="72" rx="3" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1" />
       <text x="415" y="82" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="11" fontFamily="monospace">PrivacyPool</text>
       <text x="415" y="97" textAnchor="middle" fill="rgba(255,255,255,0.28)" fontSize="8.5" fontFamily="monospace">mark nullifiers</text>
