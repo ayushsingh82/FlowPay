@@ -201,6 +201,22 @@ export function HeroSection() {
               Scallop. Spend without ever exiting your yield position — all in one
               atomic PTB.
             </p>
+
+            <div className="mt-8 flex items-center gap-4">
+              <a
+                href="/app"
+                className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-all hover:bg-white/90 hover:gap-3"
+              >
+                Launch the live demo
+                <span aria-hidden="true">→</span>
+              </a>
+              <a
+                href="#features"
+                className="text-sm font-mono text-white/60 transition-colors hover:text-white"
+              >
+                See how it works
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -17,9 +17,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-medium text-white mb-3">1. Overview</h2>
             <p>
-              FlowPay is a non-custodial credit protocol. The smart contracts and frontend do not collect personally
-              identifiable information. Wallet addresses are public by virtue of being onchain; nothing else is sent
-              to any server operated by FlowPay. The SmartRouter risk agent operates on public chain state.
+              FlowPay is a non-custodial, multi-asset payment wallet on Sui. The smart contracts and frontend do not
+              collect personally identifiable information. Wallet addresses are public by virtue of being onchain;
+              nothing else is sent to any server operated by FlowPay. The off-chain route and risk agent operates on
+              public chain state.
             </p>
           </section>
 
@@ -36,9 +37,10 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-lg font-medium text-white mb-3">3. On-chain data</h2>
             <p>
-              Interactions with the FlowPay smart contracts are recorded on Sui and are publicly visible on
-              the blockchain. The protocol is specifically designed so that these on-chain records reveal no information
-              about sender identity, recipient identity, or transaction amounts.
+              Interactions with the FlowPay smart contracts are recorded on Sui and are publicly visible on the
+              blockchain. Like any onchain payment, a spend emits a public event (the paying address, the asset
+              routed, the merchant, and the amount). FlowPay does not add any identity layer on top of this — we never
+              link an onchain address to a real-world identity, and we operate no server that records your activity.
             </p>
           </section>
 

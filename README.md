@@ -48,25 +48,33 @@ The `frontend/` Next.js app hosts every public surface:
 | Route | What it is |
 |---|---|
 | `/` | Marketing landing page |
+| `/app` | Interactive product demo — dashboard, SmartSpend PTB, Lock Rate, Spend Tomorrow, DEEP cashback (seeded testnet mock) |
 | `/docs` | Documentation (overview, architecture, sponsor integration, build plan) |
 | `/pitch` | Keyboard-driven pitch deck |
 | `/privacy`, `/terms`, `/security` | Legal & responsible-disclosure |
 
-`contracts/` and `agent/` are skeleton folders ready for the implementation
-to drop in over the hackathon window.
+`contracts/` holds the Sui Move package (FlowVault, SmartRouter, BorrowGuard,
+HedgeManager, MarginBridge, CashbackMint, plus Scallop/DeepBook/Pyth adapters
+and a full test suite). `agent/` is the off-chain brain — a Bun + TypeScript
+service for SmartSpend route optimization, FX hedging, and risk monitoring,
+with its own test suite.
 
 ## Quickstart
 
 ```bash
 cd frontend
-npm install
-npm run dev      # http://localhost:3000
+bun install
+bun run dev      # http://localhost:3000
 ```
 
 Then visit:
 - <http://localhost:3000> — landing
+- <http://localhost:3000/app> — interactive demo
 - <http://localhost:3000/docs> — docs
 - <http://localhost:3000/pitch> — pitch deck
+
+Contracts: `cd contracts && sui move build && sui move test`.
+Agent service: `cd agent && bun install && bun test && bun run dev`.
 
 ## Sponsor integration
 
