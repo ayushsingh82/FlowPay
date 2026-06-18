@@ -1,9 +1,9 @@
 import { DocsShell } from "./_components/shell";
 
 export const metadata = {
-  title: "Vela · Docs",
+  title: "FlowPay · Docs",
   description:
-    "Vela protocol documentation — stock-collateralized credit lines on Robinhood Chain.",
+    "FlowPay protocol documentation — a consumer multi-asset payment wallet on Sui with Scallop yield and DeepBook routing in one atomic PTB.",
 };
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {

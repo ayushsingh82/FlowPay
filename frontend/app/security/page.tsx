@@ -17,7 +17,7 @@ export default function SecurityPage() {
           <section>
             <h2 className="text-lg font-medium text-white mb-3">Reporting a vulnerability</h2>
             <p>
-              If you discover a security vulnerability in the FlowPay smart contracts, circuits, or frontend,
+              If you discover a security vulnerability in the FlowPay Move contracts, off-chain agent, or frontend,
               please report it responsibly. Do not open a public GitHub issue for security-sensitive bugs.
             </p>
             <p className="mt-3">
@@ -37,9 +37,9 @@ export default function SecurityPage() {
           <section>
             <h2 className="text-lg font-medium text-white mb-3">Scope</h2>
             <ul className="list-disc list-inside space-y-1">
-              <li>Smart contracts (PrivacyPool, verifiers)</li>
-              <li>ZK circuits (shield, spend, Poseidon)</li>
-              <li>TypeScript SDK</li>
+              <li>Move modules (FlowVault, SmartRouter, BorrowGuard, HedgeManager, MarginBridge, CashbackMint)</li>
+              <li>Sponsor adapters &amp; oracle (Scallop, DeepBook, Pyth integration surfaces)</li>
+              <li>Off-chain agent service (route optimizer, risk monitor, hedge advisor)</li>
               <li>Frontend application</li>
             </ul>
           </section>
@@ -66,10 +66,11 @@ export default function SecurityPage() {
             <h2 className="text-lg font-medium text-white mb-3">Audit reports</h2>
             <p>
               See the{" "}
-              <a href="/docs/ai-security-report" className="text-[#BE185D] hover:underline">
-                AI security report
+              <a href="/docs/security" className="text-[#BE185D] hover:underline">
+                security documentation
               </a>{" "}
-              in the documentation for a full analysis of the protocol's security properties.
+              for a full analysis of FlowPay's safety model — OpenZeppelin-pattern access control,
+              oracle staleness guards, per-asset LTV caps, and emergency pause.
             </p>
           </section>
         </div>
