@@ -32,9 +32,9 @@ technical claim and it's implemented in `smart_router::spend`.
 
 - [x] **Public GitHub repo** — monorepo, MIT licensed, READMEs per package.
 - [x] **Working code** — contracts tested (7/7), agent tested (40/40), SDK tested, frontend builds.
-- [ ] **Live testnet deployment** — run `cd contracts && ./deploy.sh` (needs a
-      funded testnet address; writes `contracts/deployments/testnet.json`, which
-      the SDK + frontend auto-read). Then paste the package ID + Suiscan link below.
+- [x] **Live testnet deployment** — published to Sui Testnet (see §4 for the
+      package ID, shared objects, and a real on-chain transaction). Reproduce
+      with `cd contracts && ./deploy.sh`.
 - [ ] **Demo video (≤ 3 min)** — script in §5. Record the `/app` flow + show the
       on-chain spend tx on Suiscan.
 - [x] **Pitch deck** — `/pitch` (keyboard-driven, 8 slides) and `frontend/app/pitch`.
@@ -54,8 +54,20 @@ cd contracts && ./deploy.sh               # writes deployments/testnet.json
 cd ../sdk && bun install && bun run examples/spend.ts
 ```
 
-> **Live package:** `<paste packageId after deploy>`
-> **Explorer:** `https://suiscan.xyz/testnet/object/<packageId>`
+### ✅ Live on Sui Testnet
+
+| What | Value |
+|---|---|
+| **Package** | `0x97b2010f17e28aa2ee1642940c78095df3dd7efaf46a206992974cc439168607` |
+| Explorer | https://suiscan.xyz/testnet/object/0x97b2010f17e28aa2ee1642940c78095df3dd7efaf46a206992974cc439168607 |
+| Proof tx — `flow_vault::create` | `9uCPcuTh87MjiMnuh6FNZ8v1scV6QdK7hxjGapsLrVp6` (status: success) |
+| FlowVault object created | `0x038674740a75540183e8116ac149895868ba51a813e7be19fba0d7d8dae1947a` |
+| Publisher | `0xebacee9a4a7d21c5e7bb1a7d64a74b68648f9669663f4ba391cd33d7c4a0e1dc` |
+
+Shared objects (Pause, RiskParams, OracleRegistry, CashbackTreasury,
+LendingMarket, DexMarket) are recorded in
+[`contracts/deployments/testnet.json`](./contracts/deployments/testnet.json) and
+auto-loaded by `@flowpay/sdk`.
 
 ## 5. Demo video script (≈2:45, maps to judging)
 
