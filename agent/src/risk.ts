@@ -119,6 +119,24 @@ export function evaluateRisk(req: RiskRequest): RiskReport {
   return { alerts, shouldPause, health };
 }
 
+/**
+ * Net APY for a leveraged Scallop position.
+ *
+ * netApy = supplyApy * (1 + leverage) - borrowApy * leverage
+ *
+ * Positive = earning more in supply yield than you're paying in borrow cost.
+ * Negative = borrow costs exceed yield earnings — position is a net drain.
+ */
+export function computeNetApy(
+  supplyApyPct: number,
+  borrowApyPct: number,
+  ob: Obligation,
+): number {
+  if (ob.collateralUsd <= 0) return supplyApyPct;
+  const leverage = (ob.collateralUsd + ob.debtUsd) / ob.collateralUsd;
+  return supplyApyPct * leverage - borrowApyPct * (leverage - 1);
+}
+
 function pct(x: number): string {
   return `${(x * 100).toFixed(1)}%`;
 }
