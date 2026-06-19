@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Check, Loader2, QrCode, Zap, ArrowRight } from "lucide-react";
+import { TokenIcon } from "./token-icon";
 import {
   type Asset,
   type PtbStep,
@@ -116,18 +117,19 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
           <label className="font-mono text-xs text-muted-foreground mt-4 block">
             Merchant receives
           </label>
-          <div className="mt-1 flex gap-1.5">
+          <div className="mt-1 flex gap-1.5 flex-wrap">
             {MERCHANT_TOKENS.map((t) => (
               <button
                 key={t}
                 onClick={() => setToken(t)}
                 disabled={phase !== "idle"}
-                className={`px-3 py-1.5 rounded-md border font-mono text-xs transition-colors disabled:opacity-40 ${
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md border font-mono text-xs transition-colors disabled:opacity-40 ${
                   token === t
                     ? "border-[#CFFF03]/50 bg-[#CFFF03]/10 text-[#CFFF03]"
                     : "border-foreground/10 text-muted-foreground hover:text-foreground"
                 }`}
               >
+                <TokenIcon symbol={t} size={16} />
                 {t}
               </button>
             ))}

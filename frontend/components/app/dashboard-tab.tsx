@@ -9,6 +9,7 @@ import {
   fmtNum,
 } from "@/lib/flowpay-demo";
 import { AnimatedNumber } from "./animated-number";
+import { TokenIcon } from "./token-icon";
 
 interface DashboardTabProps {
   assets: Asset[];
@@ -88,11 +89,8 @@ export function DashboardTab({ assets, accruedYield }: DashboardTabProps) {
               key={a.symbol}
               className="flex items-center gap-4 px-5 py-4 hover:bg-foreground/[0.02] transition-colors"
             >
-              <span
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-mono text-[10px] font-bold text-black"
-                style={{ backgroundColor: a.color }}
-              >
-                {a.symbol}
+              <span className="shrink-0">
+                <TokenIcon symbol={a.symbol} size={36} />
               </span>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
