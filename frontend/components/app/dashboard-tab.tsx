@@ -25,7 +25,7 @@ export function DashboardTab({ assets, accruedYield }: DashboardTabProps) {
     <div className="space-y-6">
       {/* Hero balance */}
       <div className="border border-foreground/10 bg-black rounded-xl p-6 lg:p-8 relative overflow-hidden">
-        <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-[#BE185D]/10 blur-3xl pointer-events-none" />
+        <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-[#CFFF03]/10 blur-3xl pointer-events-none" />
         <div className="relative">
           <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
             Total balance · earning on Scallop

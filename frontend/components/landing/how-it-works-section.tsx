@@ -117,14 +117,14 @@ export function HowItWorksSection() {
               <div className="flex items-center gap-4 mb-8">
                 <span
                   className={`text-4xl font-display transition-colors duration-300 ${
-                    activeStep === index ? "text-[#BE185D]" : "text-white/20"
+                    activeStep === index ? "text-[#CFFF03]" : "text-white/20"
                   }`}
                 >
                   {step.number}
                 </span>
                 <div className="flex-1 h-px bg-white/10 overflow-hidden">
                   {activeStep === index && (
-                    <div className="h-full bg-[#BE185D]/50 animate-progress" />
+                    <div className="h-full bg-[#CFFF03]/50 animate-progress" />
                   )}
                 </div>
               </div>
@@ -147,7 +147,7 @@ export function HowItWorksSection() {
               )}
 
               <div
-                className={`absolute bottom-0 left-0 right-0 h-1 bg-[#BE185D] transition-transform duration-500 origin-left ${
+                className={`absolute bottom-0 left-0 right-0 h-1 bg-[#CFFF03] transition-transform duration-500 origin-left ${
                   activeStep === index ? "scale-x-100" : "scale-x-0"
                 }`}
               />

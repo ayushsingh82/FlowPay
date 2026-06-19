@@ -42,7 +42,7 @@ export function Callout({
   const styles = {
     info: "border-blue-500/20 bg-blue-500/5 text-blue-300/70",
     warn: "border-yellow-500/20 bg-yellow-500/5 text-yellow-300/70",
-    tip:  "border-[#BE185D]/20 bg-[#BE185D]/5 text-[#BE185D]/75",
+    tip:  "border-[#CFFF03]/20 bg-[#CFFF03]/5 text-[#CFFF03]/75",
   };
   const icons = { info: "ℹ", warn: "⚠", tip: "✦" };
   return (

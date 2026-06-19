@@ -58,7 +58,7 @@ function BlurWord({ word, trigger }: { word: string; trigger: number }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trigger]);
 
-  const gradientColors = ["#BE185D", "#a78bfa", "#fbbf24", "#BE185D"];
+  const gradientColors = ["#CFFF03", "#a78bfa", "#fbbf24", "#CFFF03"];
 
   return (
     <>
@@ -156,10 +156,10 @@ export function HeroSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="inline-flex items-center gap-2 border border-[#BE185D]/25 bg-[#BE185D]/5 px-3 py-1.5 text-xs font-mono text-[#BE185D]">
+            <span className="inline-flex items-center gap-2 border border-[#CFFF03]/25 bg-[#CFFF03]/5 px-3 py-1.5 text-xs font-mono text-[#CFFF03]">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#BE185D] opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#BE185D]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CFFF03] opacity-60" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#CFFF03]" />
               </span>
               Live on Sui Testnet
             </span>

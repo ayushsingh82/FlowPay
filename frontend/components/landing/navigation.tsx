@@ -55,7 +55,7 @@ export function Navigation() {
                 isScrolled ? "text-xl text-foreground" : "text-2xl text-white"
               }`}
             >
-              Flow<span className="text-[#BE185D]">Pay</span>
+              Flow<span className="text-[#CFFF03]">Pay</span>
             </span>
           </a>
 

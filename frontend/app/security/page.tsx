@@ -10,7 +10,7 @@ export default function SecurityPage() {
           ← Back to home
         </Link>
 
-        <h1 className="text-4xl font-display mb-2">Security <span className="text-[#BE185D]">Disclosure</span></h1>
+        <h1 className="text-4xl font-display mb-2">Security <span className="text-[#CFFF03]">Disclosure</span></h1>
         <p className="text-white/40 text-sm mb-12">Responsible disclosure policy</p>
 
         <div className="prose prose-invert prose-sm max-w-none space-y-10 text-white/70 leading-relaxed">
@@ -24,7 +24,7 @@ export default function SecurityPage() {
               Open a private security advisory on{" "}
               <a
                 href="https://github.com/flowpay/flowpay/security/advisories/new"
-                className="text-[#BE185D] hover:underline"
+                className="text-[#CFFF03] hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -66,7 +66,7 @@ export default function SecurityPage() {
             <h2 className="text-lg font-medium text-white mb-3">Audit reports</h2>
             <p>
               See the{" "}
-              <a href="/docs/security" className="text-[#BE185D] hover:underline">
+              <a href="/docs/security" className="text-[#CFFF03] hover:underline">
                 security documentation
               </a>{" "}
               for a full analysis of FlowPay's safety model — OpenZeppelin-pattern access control,

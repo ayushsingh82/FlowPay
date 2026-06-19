@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const ACCENT = "#BE185D";
+const ACCENT = "#CFFF03";
 
 const HERO_VIDEO =
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg-hero-0BnFGdr81Ifnj3WbBZoNt1KE4D5DMT.mp4";

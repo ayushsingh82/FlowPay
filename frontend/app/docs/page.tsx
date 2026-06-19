@@ -8,11 +8,11 @@ export default function DocsIntroPage() {
         <span className="text-xs font-mono text-white/25 uppercase tracking-widest">Overview</span>
       </div>
       <h1 className="text-5xl lg:text-[56px] font-display tracking-tight leading-[0.92] mb-8 text-white">
-        What is <span className="text-[#BE185D]">FlowPay</span>?
+        What is <span className="text-[#CFFF03]">FlowPay</span>?
       </h1>
 
       <p className="text-white/55 leading-relaxed mb-4 text-lg">
-        <span className="text-[#BE185D]">FlowPay</span> is a consumer-first
+        <span className="text-[#CFFF03]">FlowPay</span> is a consumer-first
         payment wallet on Sui. You hold a basket of assets — SUI, USDC, BTC, ETH —
         and every idle balance auto-earns on Scallop while you spend.
       </p>
@@ -34,9 +34,9 @@ export default function DocsIntroPage() {
           <Link
             key={c.title}
             href={c.href}
-            className="border border-white/[0.08] p-5 hover:border-[#BE185D]/30 hover:bg-[#BE185D]/[0.03] transition-colors group"
+            className="border border-white/[0.08] p-5 hover:border-[#CFFF03]/30 hover:bg-[#CFFF03]/[0.03] transition-colors group"
           >
-            <h3 className="font-medium mb-2 text-white group-hover:text-[#BE185D] transition-colors">
+            <h3 className="font-medium mb-2 text-white group-hover:text-[#CFFF03] transition-colors">
               {c.title}
             </h3>
             <p className="text-sm text-white/45 leading-relaxed">{c.body}</p>
@@ -66,7 +66,7 @@ export default function DocsIntroPage() {
             href={s.href}
             className="flex items-center gap-4 p-4 border border-white/[0.07] hover:border-white/20 hover:bg-white/[0.02] transition-colors group"
           >
-            <span className="font-mono text-sm text-[#BE185D]/60 shrink-0">{s.step}</span>
+            <span className="font-mono text-sm text-[#CFFF03]/60 shrink-0">{s.step}</span>
             <span className="text-sm text-white/50 group-hover:text-white/75 transition-colors">
               {s.label}
             </span>
@@ -77,7 +77,7 @@ export default function DocsIntroPage() {
 
       <div className="mt-14 pt-8 border-t border-white/[0.07] flex items-center justify-between text-xs text-white/20 font-mono">
         <span>
-          <span className="text-[#BE185D]">FlowPay</span> · Sui Testnet · Sui Overflow 2026
+          <span className="text-[#CFFF03]">FlowPay</span> · Sui Testnet · Sui Overflow 2026
         </span>
         <a
           href="https://github.com/flowpay/flowpay"

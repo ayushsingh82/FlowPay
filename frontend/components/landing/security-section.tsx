@@ -75,7 +75,7 @@ export function SecuritySection() {
           >
             <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
               A payment app should never lose your money — and you should never have to think
-              about why. FlowPay layers <span className="text-[#BE185D]">four guardrails</span>{" "}
+              about why. FlowPay layers <span className="text-[#CFFF03]">four guardrails</span>{" "}
               on every transaction, every position, every block — so the only thing you notice
               is the APY counter ticking up.
             </p>

@@ -1,18 +1,18 @@
 <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FlowPay">
   <defs>
     <linearGradient id="markSail" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E0FF66"/>
-      <stop offset="100%" stop-color="#6B9912"/>
+      <stop offset="0%" stop-color="#E8FF70"/>
+      <stop offset="100%" stop-color="#8AAD02"/>
     </linearGradient>
   </defs>
   <rect width="64" height="64" rx="12" fill="#000000"/>
-  <rect x="0.5" y="0.5" width="63" height="63" rx="11.5" fill="none" stroke="#B6E324" stroke-opacity="0.55" stroke-width="1"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="11.5" fill="none" stroke="#CFFF03" stroke-opacity="0.55" stroke-width="1"/>
   <!-- Mast -->
-  <rect x="18" y="8" width="3" height="48" rx="1.5" fill="#B6E324"/>
+  <rect x="18" y="8" width="3" height="48" rx="1.5" fill="#CFFF03"/>
   <!-- Masthead -->
-  <circle cx="19.5" cy="8" r="2" fill="#B6E324"/>
+  <circle cx="19.5" cy="8" r="2" fill="#CFFF03"/>
   <!-- Sail -->
   <path d="M 21 13 L 21 50 L 50 50 Q 44 32 36 18 Q 30 13 24 13 Z" fill="url(#markSail)"/>
   <!-- Boom -->
-  <rect x="20" y="49" width="32" height="2" rx="1" fill="#B6E324"/>
+  <rect x="20" y="49" width="32" height="2" rx="1" fill="#CFFF03"/>
 </svg>

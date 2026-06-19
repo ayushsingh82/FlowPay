@@ -98,7 +98,7 @@ export default function AppDemoPage() {
             <Link href="/" className="flex items-center gap-2 shrink-0">
               <Image src="/logo.svg" alt="FlowPay" width={24} height={24} className="w-6 h-6" />
               <span className="font-display text-xl tracking-tight">
-                Flow<span className="text-[#BE185D]">Pay</span>
+                Flow<span className="text-[#CFFF03]">Pay</span>
               </span>
             </Link>
           </div>

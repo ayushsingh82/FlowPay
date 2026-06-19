@@ -10,7 +10,7 @@ export default function TermsPage() {
           ← Back to home
         </Link>
 
-        <h1 className="text-4xl font-display mb-2">Terms of <span className="text-[#BE185D]">Service</span></h1>
+        <h1 className="text-4xl font-display mb-2">Terms of <span className="text-[#CFFF03]">Service</span></h1>
         <p className="text-white/40 text-sm mb-12">Last updated: May 2026</p>
 
         <div className="prose prose-invert prose-sm max-w-none space-y-10 text-white/70 leading-relaxed">
@@ -53,7 +53,7 @@ export default function TermsPage() {
             <p>
               All source code is released under the MIT License. You are free to fork, modify, and deploy your own
               instance. See the{" "}
-              <a href="https://github.com/flowpay/flowpay" className="text-[#BE185D] hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/flowpay/flowpay" className="text-[#CFFF03] hover:underline" target="_blank" rel="noopener noreferrer">
                 GitHub repository
               </a>{" "}
               for details.

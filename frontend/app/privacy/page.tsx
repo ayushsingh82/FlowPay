@@ -10,7 +10,7 @@ export default function PrivacyPage() {
           ← Back to home
         </Link>
 
-        <h1 className="text-4xl font-display mb-2">Privacy <span className="text-[#BE185D]">Policy</span></h1>
+        <h1 className="text-4xl font-display mb-2">Privacy <span className="text-[#CFFF03]">Policy</span></h1>
         <p className="text-white/40 text-sm mb-12">Last updated: May 2026</p>
 
         <div className="prose prose-invert prose-sm max-w-none space-y-10 text-white/70 leading-relaxed">
@@ -57,7 +57,7 @@ export default function PrivacyPage() {
             <p>
               We may update this policy as the protocol evolves. Material changes will be announced via our official
               Twitter account{" "}
-              <a href="https://x.com/flowpay" className="text-[#BE185D] hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/flowpay" className="text-[#CFFF03] hover:underline" target="_blank" rel="noopener noreferrer">
                 @flowpay
               </a>
               .
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
             <h2 className="text-lg font-medium text-white mb-3">6. Contact</h2>
             <p>
               Questions about this policy? Open an issue on{" "}
-              <a href="https://github.com/flowpay/flowpay" className="text-[#BE185D] hover:underline" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/flowpay/flowpay" className="text-[#CFFF03] hover:underline" target="_blank" rel="noopener noreferrer">
                 GitHub
               </a>
               .

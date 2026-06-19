@@ -53,7 +53,7 @@ export function FooterSection() {
             <div className="col-span-2">
               <a href="/" className="inline-flex items-center gap-2 mb-6">
                 <span className="text-2xl font-display text-white">
-                  Flow<span className="text-[#BE185D]">Pay</span>
+                  Flow<span className="text-[#CFFF03]">Pay</span>
                 </span>
               </a>
 
@@ -109,7 +109,7 @@ export function FooterSection() {
           </p>
           <div className="flex items-center gap-6 text-sm text-white/30">
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#BE185D]" />
+              <span className="w-2 h-2 rounded-full bg-[#CFFF03]" />
               Sui Testnet
             </span>
             <span className="font-mono">Sui Overflow 2026</span>

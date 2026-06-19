@@ -35,10 +35,10 @@ export function CashbackTab({ deepBalance, spendCount, staked, onStake }: Cashba
   return (
     <div className="grid lg:grid-cols-2 gap-6">
       <div className="border border-foreground/10 bg-black rounded-xl p-6 relative overflow-hidden">
-        <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-[#BE185D]/10 blur-3xl pointer-events-none" />
+        <div className="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-[#CFFF03]/10 blur-3xl pointer-events-none" />
         <div className="relative">
           <div className="flex items-center gap-2 mb-4">
-            <Gift className="w-4 h-4 text-[#BE185D]" />
+            <Gift className="w-4 h-4 text-[#CFFF03]" />
             <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
               DEEP cashback
             </span>
@@ -73,7 +73,7 @@ export function CashbackTab({ deepBalance, spendCount, staked, onStake }: Cashba
 
       <div className="border border-foreground/10 bg-black rounded-xl p-6">
         <div className="flex items-center gap-2 mb-4">
-          <Sparkles className="w-4 h-4 text-[#BE185D]" />
+          <Sparkles className="w-4 h-4 text-[#CFFF03]" />
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
             Stake for fee discount
           </span>
@@ -95,9 +95,9 @@ export function CashbackTab({ deepBalance, spendCount, staked, onStake }: Cashba
         <div className="mt-6">
           <div className="flex items-center justify-between font-mono text-xs mb-2">
             <span className="text-muted-foreground">Spend fee discount</span>
-            <span className="text-[#BE185D] text-base">{(discount * 100).toFixed(1)}%</span>
+            <span className="text-[#CFFF03] text-base">{(discount * 100).toFixed(1)}%</span>
           </div>
-          <Progress value={(discount / 0.3) * 100} className="bg-secondary [&>*]:bg-[#BE185D]" />
+          <Progress value={(discount / 0.3) * 100} className="bg-secondary [&>*]:bg-[#CFFF03]" />
           <div className="mt-1 font-mono text-[11px] text-muted-foreground/60">
             up to 30% off DeepBook execution fees on future spends
           </div>

@@ -25,7 +25,7 @@ export function BillsTab({ bills, onLock }: BillsTabProps) {
   return (
     <div className="space-y-5">
       <div className="flex items-center gap-2">
-        <CalendarClock className="w-4 h-4 text-[#BE185D]" />
+        <CalendarClock className="w-4 h-4 text-[#CFFF03]" />
         <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
           Upcoming bills · DeepBook Predict
         </span>

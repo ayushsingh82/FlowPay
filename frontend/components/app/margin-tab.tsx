@@ -44,7 +44,7 @@ export function MarginTab({ assets }: MarginTabProps) {
     <div className="grid lg:grid-cols-2 gap-6">
       <div className="border border-foreground/10 bg-black rounded-xl p-6 space-y-5">
         <div className="flex items-center gap-2">
-          <Clock className="w-4 h-4 text-[#BE185D]" />
+          <Clock className="w-4 h-4 text-[#CFFF03]" />
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
             Spend tomorrow · DeepBook Margin
           </span>
@@ -85,7 +85,7 @@ export function MarginTab({ assets }: MarginTabProps) {
                 disabled={phase !== "idle"}
                 className={`px-3 py-1.5 rounded-md border font-mono text-xs transition-colors disabled:opacity-40 ${
                   collateral === a.symbol
-                    ? "border-[#BE185D]/50 bg-[#BE185D]/10 text-[#BE185D]"
+                    ? "border-[#CFFF03]/50 bg-[#CFFF03]/10 text-[#CFFF03]"
                     : "border-foreground/10 text-muted-foreground hover:text-foreground"
                 }`}
               >

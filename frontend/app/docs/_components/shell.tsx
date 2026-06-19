@@ -91,7 +91,7 @@ function Sidebar() {
                     href={item.slug === "" ? "/docs" : `/docs/${item.slug}`}
                     className={`block text-sm px-3 py-1.5 transition-colors rounded-sm ${
                       isActive(item.slug)
-                        ? "text-[#BE185D] bg-[#BE185D]/[0.08]"
+                        ? "text-[#CFFF03] bg-[#CFFF03]/[0.08]"
                         : "text-white/65 hover:text-white/90 hover:bg-white/[0.05]"
                     }`}
                   >
@@ -131,7 +131,7 @@ export function DocsShell({ children }: { children: React.ReactNode }) {
                 className="opacity-80 hover:opacity-100 transition-opacity"
               />
               <span>
-                Flow<span className="text-[#BE185D]">Pay</span>
+                Flow<span className="text-[#CFFF03]">Pay</span>
               </span>
             </Link>
             <span className="text-white/15">/</span>

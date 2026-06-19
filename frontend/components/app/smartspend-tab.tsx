@@ -76,7 +76,7 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
       <div className="space-y-5">
         <div className="border border-foreground/10 bg-black rounded-xl p-6">
           <div className="flex items-center gap-2 mb-5">
-            <QrCode className="w-4 h-4 text-[#BE185D]" />
+            <QrCode className="w-4 h-4 text-[#CFFF03]" />
             <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
               Scan / enter payment
             </span>
@@ -124,7 +124,7 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
                 disabled={phase !== "idle"}
                 className={`px-3 py-1.5 rounded-md border font-mono text-xs transition-colors disabled:opacity-40 ${
                   token === t
-                    ? "border-[#BE185D]/50 bg-[#BE185D]/10 text-[#BE185D]"
+                    ? "border-[#CFFF03]/50 bg-[#CFFF03]/10 text-[#CFFF03]"
                     : "border-foreground/10 text-muted-foreground hover:text-foreground"
                 }`}
               >
@@ -136,10 +136,10 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
 
         {/* Optimizer verdict */}
         {best && (
-          <div className="border border-[#BE185D]/25 bg-[#BE185D]/[0.04] rounded-xl p-5">
+          <div className="border border-[#CFFF03]/25 bg-[#CFFF03]/[0.04] rounded-xl p-5">
             <div className="flex items-center gap-2 mb-3">
-              <Zap className="w-4 h-4 text-[#BE185D]" />
-              <span className="font-mono text-xs uppercase tracking-wider text-[#BE185D]">
+              <Zap className="w-4 h-4 text-[#CFFF03]" />
+              <span className="font-mono text-xs uppercase tracking-wider text-[#CFFF03]">
                 SmartSpend optimizer
               </span>
             </div>
@@ -147,7 +147,7 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
               <>
                 <p className="text-sm text-foreground leading-relaxed">
                   Selling{" "}
-                  <span className="font-mono text-[#BE185D]">
+                  <span className="font-mono text-[#CFFF03]">
                     {fmtNum(best.unitsSold, 6)} {best.asset.symbol}
                   </span>{" "}
                   via DeepBook
@@ -208,7 +208,7 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
             Atomic PTB
           </span>
           {phase === "executing" && (
-            <span className="flex items-center gap-1.5 font-mono text-xs text-[#BE185D]">
+            <span className="flex items-center gap-1.5 font-mono text-xs text-[#CFFF03]">
               <Loader2 className="w-3 h-3 animate-spin" /> executing…
             </span>
           )}
@@ -236,7 +236,7 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
                     state === "done"
                       ? "bg-emerald-400/15 text-emerald-400"
                       : state === "active"
-                        ? "bg-[#BE185D]/15 text-[#BE185D]"
+                        ? "bg-[#CFFF03]/15 text-[#CFFF03]"
                         : "bg-secondary text-muted-foreground"
                   }`}
                 >
