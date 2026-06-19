@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
@@ -24,6 +24,10 @@ interface CashbackTabProps {
 export function CashbackTab({ deepBalance, spendCount, staked, onStake }: CashbackTabProps) {
   const available = Math.max(0, deepBalance - staked);
   const [stakeTarget, setStakeTarget] = useState(staked);
+
+  useEffect(() => {
+    setStakeTarget(staked);
+  }, [staked]);
 
   const discount = feeDiscountForStake(stakeTarget);
   const maxStake = Math.max(1, Math.ceil(deepBalance));
