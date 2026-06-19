@@ -21,6 +21,7 @@ module flowpay::oracle {
     const EPriceStale: u64 = 1;
     const EPriceMissing: u64 = 2;
     const EZeroPrice: u64 = 3;
+    const EConfidenceTooWide: u64 = 4;
 
     /// Default maximum age (ms) before a price is considered stale (~60s).
     const DEFAULT_MAX_AGE_MS: u64 = 60_000;
@@ -148,6 +149,18 @@ module flowpay::oracle {
         assert!(price.usd_e6 > 0, EZeroPrice);
         let scale = pow10(decimals);
         (((usd_e6 as u128) * (scale as u128)) / (price.usd_e6 as u128)) as u64
+    }
+
+    /// Assert the Pyth confidence interval is tight enough to be usable.
+    /// `max_conf_bps` is the maximum tolerated ratio of conf/price in basis
+    /// points (e.g. 200 = 2%). Wide confidence = uncertain price; abort to
+    /// prevent trades being mis-priced by more than the slippage tolerance.
+    public fun check_confidence(p: &Price, max_conf_bps: u64) {
+        assert!(p.usd_e6 > 0, EZeroPrice);
+        let conf_bps = ((p.conf_e6 as u128) * 10_000u128 / (p.usd_e6 as u128)) as u64;
+        if (conf_bps > max_conf_bps) {
+            abort EConfidenceTooWide
+        }
     }
 
     // ===== Price accessors =====
