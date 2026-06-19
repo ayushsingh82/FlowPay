@@ -118,6 +118,24 @@ The `docs/` folder is the source of truth for the project's why and what:
 - [`docs/deepbook-integration.md`](./docs/deepbook-integration.md) — all the ways DeepBook plugs in
 - [`docs/ideas-defi-payments.md`](./docs/ideas-defi-payments.md) — long-form idea pool
 
+## Live testnet deployment
+
+FlowPay is deployed on **Sui Testnet**. All contracts are live and verifiable on-chain.
+
+| Object | ID |
+|---|---|
+| Package | `0x97b2010f17e28aa2ee1642940c78095df3dd7efaf46a206992974cc439168607` |
+| OracleRegistry | `0xd8b25e4f4403cf7afe615497339b57f5986fa3f6d8757d53caec771ce2ac0465` |
+| RiskParams | `0x76a1d8268befe4d238b1d285ad7f06492642813f60717eab5888ca71f7e63dc4` |
+| CashbackTreasury | `0x3448315352cd62abf8e577a61de7a4eb415601ccf82f08cf1c0f4fa8bd2bceb8` |
+| DexMarket | `0xda6980a0678554c3cc481e105cbad1c7376967964ab9566355008de2e19be15d` |
+| LendingMarket | `0xde530fc05cd43832633b764b2d2b9cd3c3646a32be9f872a3bcfb75f452ec581` |
+
+Inspect the package on the Sui Testnet explorer:
+`https://suiscan.xyz/testnet/object/0x97b2010f17e28aa2ee1642940c78095df3dd7efaf46a206992974cc439168607`
+
+Full deployment record: [`contracts/deployments/testnet.json`](./contracts/deployments/testnet.json)
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).
