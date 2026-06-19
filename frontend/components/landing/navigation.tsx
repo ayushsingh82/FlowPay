@@ -89,6 +89,14 @@ export function Navigation() {
             >
               Pitch
             </a>
+            <a
+              href={DOCS_URL}
+              className={`text-sm transition-colors duration-300 font-mono ${
+                isScrolled ? "text-foreground/60 hover:text-foreground" : "text-white/60 hover:text-white"
+              }`}
+            >
+              Docs
+            </a>
             <Button
               size="sm"
               asChild
@@ -98,7 +106,7 @@ export function Navigation() {
                   : "bg-white hover:bg-white/90 text-black px-6"
               }`}
             >
-              <a href={DOCS_URL}>Read the docs</a>
+              <a href="/app">Launch app</a>
             </Button>
           </div>
 
@@ -143,13 +151,21 @@ export function Navigation() {
             </a>
           </div>
           <div
-            className={`flex gap-4 pt-8 border-t border-foreground/10 transition-all duration-500 ${
+            className={`flex flex-col gap-4 pt-8 border-t border-foreground/10 transition-all duration-500 ${
               isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
             style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
             <Button
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
+              asChild
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <a href="/app">Launch app</a>
+            </Button>
+            <Button
+              variant="outline"
+              className="flex-1 rounded-full h-14 text-base border-foreground/20"
               asChild
               onClick={() => setIsMobileMenuOpen(false)}
             >

@@ -36,7 +36,7 @@ export default function TermsPage() {
             <h2 className="text-lg font-medium text-white mb-3">3. Prohibited use</h2>
             <p>
               You may not use FlowPay to violate applicable laws, including sanctions regulations in your
-              jurisdiction. The protocol is designed for lawful financial privacy, not for evading legal obligations.
+              jurisdiction. FlowPay is designed for lawful, everyday payments and yield, not for evading legal obligations.
             </p>
           </section>
 

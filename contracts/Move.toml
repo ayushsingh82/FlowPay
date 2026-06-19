@@ -1,0 +1,16 @@
+[package]
+name = "flowpay"
+edition = "2024.beta"
+# version of the FlowPay on-chain package (Sui Overflow 2026)
+version = "0.1.0"
+license = "MIT"
+authors = ["FlowPay Team"]
+
+# We intentionally do NOT vendor Scallop / DeepBook / Pyth here. Their mainnet
+# packages are modeled behind local adapter modules (see sources/adapters/*).
+# Only the Sui framework is a real dependency so the package compiles standalone.
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/testnet" }
+
+[addresses]
+flowpay = "0x0"
