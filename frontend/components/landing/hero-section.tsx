@@ -156,13 +156,18 @@ export function HeroSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <span className="inline-flex items-center gap-2 border border-[#CFFF03]/25 bg-[#CFFF03]/5 px-3 py-1.5 text-xs font-mono text-[#CFFF03]">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CFFF03] opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#CFFF03]" />
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="inline-flex items-center gap-2 border border-[#CFFF03]/25 bg-[#CFFF03]/5 px-3 py-1.5 text-xs font-mono text-[#CFFF03]">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#CFFF03] opacity-60" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#CFFF03]" />
+                </span>
+                Live on Sui Testnet
               </span>
-              Live on Sui Testnet
-            </span>
+              <span className="inline-flex items-center gap-2 border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-mono text-white/60">
+                Scallop · DeepBook · Sui Overflow 2026
+              </span>
+            </div>
           </div>
 
           <div
@@ -198,8 +203,8 @@ export function HeroSection() {
           >
             <p className="text-lg text-white/55 max-w-md leading-relaxed">
               Hold a basket of assets on Sui. Every idle dollar auto-earns on
-              Scallop. Spend without ever exiting your yield position — all in one
-              atomic PTB.
+              Scallop. Every spend routes through DeepBook for best execution.
+              Borrow, swap, send — atomic in one PTB.
             </p>
 
             <div className="mt-8 flex items-center gap-4">

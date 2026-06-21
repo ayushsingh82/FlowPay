@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Wallet, Zap, Sprout, CalendarClock, Clock, Gift, Menu, X } from "lucide-react";
+import { LayoutDashboard, Zap, Sprout, CalendarClock, Clock, Gift, Menu, X } from "lucide-react";
+import { useCurrentAccount } from "@mysten/dapp-kit";
 import {
   SEED_ASSETS,
   SEED_BILLS,
@@ -13,8 +14,8 @@ import {
   totalUsdValue,
   blendedApy,
 } from "@/lib/flowpay-demo";
-import { DemoBadge } from "@/components/app/demo-badge";
-import { WalletStatus } from "@/components/app/wallet-status";
+import { WalletGate } from "@/components/app/wallet-gate";
+import { WalletButton } from "@/components/app/wallet-button";
 import { useScallopApy } from "@/hooks/use-scallop-apy";
 import { SafetyStrip } from "@/components/app/safety-strip";
 import { DashboardTab } from "@/components/app/dashboard-tab";
@@ -28,7 +29,7 @@ import { CashbackTab } from "@/components/app/cashback-tab";
 type TabValue = "dashboard" | "smartspend" | "earn" | "bills" | "margin" | "cashback";
 
 const NAV_ITEMS = [
-  { value: "dashboard" as TabValue, label: "Dashboard", icon: Wallet },
+  { value: "dashboard" as TabValue, label: "Dashboard", icon: LayoutDashboard },
   { value: "smartspend" as TabValue, label: "SmartSpend", icon: Zap },
   { value: "earn" as TabValue, label: "Earn", icon: Sprout },
   { value: "bills" as TabValue, label: "Lock Rate", icon: CalendarClock },
@@ -46,6 +47,7 @@ const SECTION_TITLES: Record<TabValue, string> = {
 };
 
 export default function AppDemoPage() {
+  const account = useCurrentAccount();
   const [activeTab, setActiveTab] = useState<TabValue>("dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -111,6 +113,8 @@ export default function AppDemoPage() {
     setSidebarOpen(false);
   }
 
+  if (!account) return <WalletGate />;
+
   return (
     <div className="min-h-screen bg-background text-foreground noise-overlay flex">
 
@@ -149,9 +153,9 @@ export default function AppDemoPage() {
         </nav>
 
         <div className="p-4 border-t border-foreground/10 space-y-3">
-          <DemoBadge />
+          <WalletButton />
           <p className="font-mono text-[10px] text-muted-foreground/40 leading-relaxed">
-            Testnet demo · no real funds
+            Sui Testnet · no real funds
           </p>
         </div>
       </aside>
@@ -189,7 +193,7 @@ export default function AppDemoPage() {
               ))}
             </nav>
             <div className="p-4 border-t border-foreground/10">
-              <DemoBadge />
+              <WalletButton />
             </div>
           </aside>
         </div>
@@ -219,12 +223,7 @@ export default function AppDemoPage() {
               {SECTION_TITLES[activeTab]}
             </span>
           </div>
-          <div className="flex items-center gap-3">
-            <span className="hidden md:block">
-              <DemoBadge />
-            </span>
-            <WalletStatus />
-          </div>
+          <WalletButton />
         </header>
 
         {/* Scrollable content */}

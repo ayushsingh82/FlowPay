@@ -20,10 +20,10 @@ const features = [
   },
   {
     number: "03",
-    title: "Programmable Payments",
+    title: "DeepBook Best Execution",
     description:
-      "Send to contacts, scan QR at merchants, stream payroll, or schedule subscriptions. Every flow is a programmable Sui object — composable with the rest of the ecosystem the moment it leaves your wallet.",
-    stats: { value: "<1s", label: "settlement on Sui testnet" },
+      "Every spend routes through DeepBook's central limit order book for optimal price discovery. SmartRouter picks the cheapest asset in your basket, sources liquidity from the deepest pool, and delivers the exact token the merchant expects — all on-chain, all verifiable.",
+    stats: { value: "CLOB", label: "DeepBook best-execution routing" },
   },
   {
     number: "04",
