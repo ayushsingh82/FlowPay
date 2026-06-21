@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Wallet, Zap, CalendarClock, Clock, Gift, Menu, X } from "lucide-react";
+import { Wallet, Zap, Sprout, CalendarClock, Clock, Gift, Menu, X } from "lucide-react";
 import {
   SEED_ASSETS,
   SEED_BILLS,
@@ -14,18 +14,23 @@ import {
   blendedApy,
 } from "@/lib/flowpay-demo";
 import { DemoBadge } from "@/components/app/demo-badge";
+import { WalletStatus } from "@/components/app/wallet-status";
+import { useScallopApy } from "@/hooks/use-scallop-apy";
 import { SafetyStrip } from "@/components/app/safety-strip";
 import { DashboardTab } from "@/components/app/dashboard-tab";
 import { SmartSpendTab } from "@/components/app/smartspend-tab";
+import { DeepBookSwap } from "@/components/app/deepbook-swap";
+import { ScallopDeposit } from "@/components/app/scallop-deposit";
 import { BillsTab } from "@/components/app/bills-tab";
 import { MarginTab } from "@/components/app/margin-tab";
 import { CashbackTab } from "@/components/app/cashback-tab";
 
-type TabValue = "dashboard" | "smartspend" | "bills" | "margin" | "cashback";
+type TabValue = "dashboard" | "smartspend" | "earn" | "bills" | "margin" | "cashback";
 
 const NAV_ITEMS = [
   { value: "dashboard" as TabValue, label: "Dashboard", icon: Wallet },
   { value: "smartspend" as TabValue, label: "SmartSpend", icon: Zap },
+  { value: "earn" as TabValue, label: "Earn", icon: Sprout },
   { value: "bills" as TabValue, label: "Lock Rate", icon: CalendarClock },
   { value: "margin" as TabValue, label: "Spend Tomorrow", icon: Clock },
   { value: "cashback" as TabValue, label: "DEEP Cashback", icon: Gift },
@@ -34,6 +39,7 @@ const NAV_ITEMS = [
 const SECTION_TITLES: Record<TabValue, string> = {
   dashboard: "Dashboard",
   smartspend: "SmartSpend",
+  earn: "Earn",
   bills: "Lock Rate",
   margin: "Spend Tomorrow",
   cashback: "DEEP Cashback",
@@ -54,6 +60,18 @@ export default function AppDemoPage() {
     oracleAgeSec: 0.4,
     oracleMaxAgeSec: 30,
   });
+
+  // Real Scallop mainnet supply APYs — replaces the seeded apy numbers so the
+  // dashboard's yields (and the live ticker derived from them) are real.
+  const scallop = useScallopApy();
+  useEffect(() => {
+    if (!scallop.live) return;
+    setAssets((prev) =>
+      prev.map((a) =>
+        scallop.rates[a.symbol] != null ? { ...a, apy: scallop.rates[a.symbol]! } : a,
+      ),
+    );
+  }, [scallop.live, scallop.rates]);
 
   const assetsRef = useRef(assets);
   assetsRef.current = assets;
@@ -201,7 +219,12 @@ export default function AppDemoPage() {
               {SECTION_TITLES[activeTab]}
             </span>
           </div>
-          <DemoBadge />
+          <div className="flex items-center gap-3">
+            <span className="hidden md:block">
+              <DemoBadge />
+            </span>
+            <WalletStatus />
+          </div>
         </header>
 
         {/* Scrollable content */}
@@ -209,10 +232,28 @@ export default function AppDemoPage() {
           <SafetyStrip safety={safety} assets={assets} onTogglePause={togglePause} />
 
           {activeTab === "dashboard" && (
-            <DashboardTab assets={assets} accruedYield={accruedYield} />
+            <DashboardTab
+              assets={assets}
+              accruedYield={accruedYield}
+              apyLive={scallop.live}
+              apyUpdatedAt={scallop.updatedAt}
+            />
           )}
           {activeTab === "smartspend" && (
-            <SmartSpendTab assets={assets} paused={safety.paused} onSpend={handleSpend} />
+            <div className="space-y-6">
+              <DeepBookSwap />
+              <div className="border-t border-foreground/10 pt-6">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground/50 mb-4">
+                  Simulated routing preview
+                </p>
+                <SmartSpendTab assets={assets} paused={safety.paused} onSpend={handleSpend} />
+              </div>
+            </div>
+          )}
+          {activeTab === "earn" && (
+            <div className="max-w-xl">
+              <ScallopDeposit />
+            </div>
           )}
           {activeTab === "bills" && (
             <BillsTab bills={bills} onLock={handleLockBill} />
@@ -231,7 +272,7 @@ export default function AppDemoPage() {
 
           <footer className="pt-2 pb-6 text-center">
             <p className="font-mono text-[11px] text-muted-foreground/40 leading-relaxed max-w-xl mx-auto">
-              Simulated walkthrough · no real wallet, chain, or funds · seeded mock data · Sui Overflow 2026
+              Live wallet connect, testnet balances &amp; a real on-chain DeepBook swap (SmartSpend tab) · yield, cashback &amp; the routing preview are simulated · Sui Overflow 2026
             </p>
           </footer>
         </main>

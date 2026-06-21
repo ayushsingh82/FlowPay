@@ -1,4 +1,4 @@
-import type { AssetSymbol } from "@/lib/flowpay-demo";
+import type { AssetSymbol, MerchantToken } from "@/lib/flowpay-demo";
 
 function SuiIcon({ size }: { size: number }) {
   return (
@@ -72,8 +72,16 @@ const ICONS: Record<AssetSymbol, (size: number) => React.ReactElement> = {
   ETH:  (s) => <EthIcon size={s} />,
 };
 
-export function TokenIcon({ symbol, size = 36 }: { symbol: AssetSymbol; size?: number }) {
-  const render = ICONS[symbol];
+// Accepts vault assets and merchant settlement tokens (VND/USDT). Symbols
+// without a dedicated glyph fall back to the generic two-letter mark below.
+export function TokenIcon({
+  symbol,
+  size = 36,
+}: {
+  symbol: AssetSymbol | MerchantToken;
+  size?: number;
+}) {
+  const render = ICONS[symbol as AssetSymbol];
   if (render) return render(size);
   return (
     <svg width={size} height={size} viewBox="0 0 40 40">

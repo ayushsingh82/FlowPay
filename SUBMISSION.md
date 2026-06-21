@@ -1,96 +1,118 @@
 # FlowPay — Sui Overflow 2026 Submission Kit
 
-> The payment app where your money never stops earning.
-> Multi-asset wallet on Sui · Scallop yield · DeepBook routing · one atomic PTB.
+> A payment wallet on Sui where idle balances earn yield and every spend routes
+> through DeepBook for best execution.
 
-**Tracks:** DeFi & Payments (Core) + DeepBook (Specialized) — dual eligible.
-**Sponsors used:** Scallop · DeepBook (Spot + Predict + Margin + DEEP) · OpenZeppelin patterns · Pyth.
+**Tracks:** DeFi & Payments (core) + DeepBook (specialized).
+**Sponsors used:** DeepBook (real v3 testnet swap) · Scallop (real mainnet deposit + live APY data) · OpenZeppelin patterns.
 
 ---
 
-## 1. What we built (and where it lives)
+## 1. The headline: a real DeepBook swap you can verify
 
-| Component | Path | Status |
-|---|---|---|
-| Move package (`flowpay`) | [`contracts/`](./contracts) | ✅ `sui move build` clean · `sui move test` **7/7** (Sui CLI 1.73.2) |
-| TypeScript PTB SDK (`@flowpay/sdk`) | [`sdk/`](./sdk) | ✅ builds real `pay()/deposit()/watchVault()` transactions |
-| Off-chain agent (router/risk/hedge) | [`agent/`](./agent) | ✅ `bun test` **40/40** · `Bun.serve` API |
-| Web app — landing, docs, pitch, live demo | [`frontend/`](./frontend) | ✅ `bun run build` green · `/app` interactive demo |
+Open `/app` → **SmartSpend**, connect a Sui wallet on **testnet**, and run a swap.
+It is a genuine on-chain DeepBook v3 trade — **not** a simulation:
 
-The three primitives are **runtime dependencies, not bolt-ons**: remove Scallop
-(yield) or DeepBook (routing) and the product stops working.
+- Routes **SUI → DEEP → USDC** through two *whitelisted* DeepBook testnet pools
+  (`DEEP_SUI`, `DEEP_DBUSDC`) in a **single atomic PTB**.
+- Quotes are read live from the order book (`getQuoteQuantityOut` /
+  `getBaseQuantityOut`); the PTB is signed by the user's wallet via
+  `@mysten/dapp-kit` and submitted to testnet.
+- No DEEP pre-funding and no BalanceManager setup — a faucet-funded wallet runs
+  the whole route, because whitelisted pools charge zero protocol fee.
+- The success card links the transaction on Suiscan.
 
-## 2. The one thing that makes it Sui-native
+Code: [`frontend/lib/deepbook.ts`](./frontend/lib/deepbook.ts) (route + PTB
+builder), [`frontend/components/app/deepbook-swap.tsx`](./frontend/components/app/deepbook-swap.tsx) (UI).
 
-Every spend is a **single atomic PTB**: withdraw/borrow from the Scallop-backed
-vault → route through DeepBook for best execution → settle to the merchant →
-mint DEEP cashback → emit `SpendEvent`. If any step fails the whole thing
-reverts. This composition isn't replicable on a non-PTB chain — it's the core
-technical claim and it's implemented in `smart_router::spend`.
+## 2. What's real vs. simulated (read this)
+
+We separate genuinely on-chain functionality from demo scaffolding, on purpose.
+
+| Capability | Status |
+|---|---|
+| DeepBook v3 spot swap (testnet, wallet-signed, atomic PTB) | ✅ **Real** |
+| Real Scallop **deposit** on mainnet (`/app` → Earn) — supply SUI/USDC, earns yield, wallet-signed | ✅ **Real** |
+| Live Scallop mainnet supply APYs in the dashboard | ✅ **Real** (read-only, from Scallop's indexer) |
+| Sui wallet connect + live testnet balance | ✅ **Real** |
+| Move package deployed to testnet + PTB SDK | ✅ **Real** (self-contained package) |
+| Scallop **borrow** against position (no-exit-yield spend) | ⚠️ Roadmap |
+| Move package Scallop/DeepBook/Pyth adapters | ⚠️ Local models, not cross-package calls (so the package builds standalone) |
+| Lock Rate (Predict), Spend Tomorrow (Margin), DEEP cashback, safety strip | ⚠️ Simulated UI over the architecture |
+
+On Scallop & networks: Scallop's SDK is **mainnet-only** ("testnet will give
+errors because there is no package ID for the testnet"). So the DeepBook swap runs
+on **testnet** (free) while the Scallop deposit runs on **mainnet** (real funds,
+small amounts). The Scallop SDK is pinned to an older `@mysten/sui` (1.x), so we
+isolate it server-side: a route builds the deposit PTB, and the browser bridges
+it to the app's 2.x stack and signs it — see
+[`frontend/app/api/scallop-deposit-tx/route.ts`](./frontend/app/api/scallop-deposit-tx/route.ts)
+and [`frontend/components/app/scallop-deposit.tsx`](./frontend/components/app/scallop-deposit.tsx).
 
 ## 3. Required deliverables checklist
 
-- [x] **Public GitHub repo** — monorepo, MIT licensed, READMEs per package.
-- [x] **Working code** — contracts tested (7/7), agent tested (40/40), SDK tested, frontend builds.
-- [x] **Live testnet deployment** — published to Sui Testnet (see §4 for the
-      package ID, shared objects, and a real on-chain transaction). Reproduce
-      with `cd contracts && ./deploy.sh`.
-- [ ] **Demo video (≤ 3 min)** — script in §5. Record the `/app` flow + show the
-      on-chain spend tx on Suiscan.
-- [x] **Pitch deck** — `/pitch` (keyboard-driven, 8 slides) and `frontend/app/pitch`.
-- [x] **Written docs** — `/docs` (overview, architecture, sponsor integration, modules).
+- [x] **Public GitHub repo** — monorepo, MIT licensed.
+- [x] **Working code** — a real DeepBook testnet swap (above); Move package
+      tested + deployed; agent unit-tested; frontend builds clean (`bun run build`).
+- [x] **Live testnet deployment** — self-contained Move package on testnet (§5),
+      and a real wallet-signed DeepBook swap any judge can reproduce in `/app`.
+- [ ] **Demo video (≤ 3 min)** — script in §6.
+- [x] **Pitch deck** — `/pitch`.
+- [x] **Written docs** — `/docs` + this kit.
 
-## 4. Deploy & verify (live testnet)
+## 4. Run the real swap (≈1 min)
 
 ```bash
-# 1. point sui at testnet and fund the address
-sui client switch --env testnet
-sui client active-address                 # → fund at https://faucet.sui.io/?address=<addr>
-
-# 2. publish + capture all object IDs
-cd contracts && ./deploy.sh               # writes deployments/testnet.json
-
-# 3. build a real spend PTB against the live package
-cd ../sdk && bun install && bun run examples/spend.ts
+cd frontend && bun install && bun run dev      # http://localhost:3000/app
 ```
 
-### ✅ Live on Sui Testnet
+1. Open **SmartSpend**, click **Connect** (use a wallet set to **testnet**).
+2. Fund the wallet: <https://faucet.sui.io/?network=testnet>.
+3. Enter ~0.5 SUI, pick **USDC**, and **Swap on DeepBook**.
+4. Approve in the wallet → the success card links the tx on Suiscan.
+
+## 5. Deploy & verify (Move package)
+
+```bash
+sui client switch --env testnet
+cd contracts && ./deploy.sh                # writes deployments/testnet.json
+```
+
+### Live on Sui Testnet
 
 | What | Value |
 |---|---|
 | **Package** | `0x97b2010f17e28aa2ee1642940c78095df3dd7efaf46a206992974cc439168607` |
 | Explorer | https://suiscan.xyz/testnet/object/0x97b2010f17e28aa2ee1642940c78095df3dd7efaf46a206992974cc439168607 |
-| Proof tx — `flow_vault::create` | `9uCPcuTh87MjiMnuh6FNZ8v1scV6QdK7hxjGapsLrVp6` (status: success) |
-| FlowVault object created | `0x038674740a75540183e8116ac149895868ba51a813e7be19fba0d7d8dae1947a` |
 | Publisher | `0xebacee9a4a7d21c5e7bb1a7d64a74b68648f9669663f4ba391cd33d7c4a0e1dc` |
 
-Shared objects (Pause, RiskParams, OracleRegistry, CashbackTreasury,
-LendingMarket, DexMarket) are recorded in
-[`contracts/deployments/testnet.json`](./contracts/deployments/testnet.json) and
-auto-loaded by `@flowpay/sdk`.
+The package is self-contained — it models Scallop/DeepBook/Pyth behind local
+adapters so it builds and deploys without vendoring those packages. The *real*
+DeepBook integration is the frontend SDK path in §1.
 
-## 5. Demo video script (≈2:45, maps to judging)
+## 6. Demo video script (≈2:30)
 
-1. **0:00 Hook** — "$1,000 split across SUI/USDC/BTC, all earning yield. Watch me buy coffee." Open `/app`, show live APY counters ticking.
-2. **0:30 SmartSpend (DeepBook Spot + Scallop)** — pay $5; optimizer picks the cheapest asset ("selling 0.0001 BTC via DeepBook, saves $0.02 vs SUI"); the 6-step atomic PTB animates; success in ~800ms; APY never stops.
-3. **1:15 Lock Rate (DeepBook Predict)** — Bills tab, rent due, one-tap rate lock.
-4. **1:45 Spend Tomorrow (DeepBook Margin)** — get liquidity now without selling collateral; auto-repay note.
-5. **2:05 DEEP cashback + safety** — DEEP balance growing, stake-for-discount; OZ emergency pause + Pyth oracle freshness + per-asset LTV caps.
-6. **2:25 Proof it's real** — terminal: `sui move test` 7/7; Suiscan showing the deployed package + a real `SpendEvent`.
-7. **2:40 Vision** — "FlowPay turns every Sui wallet into a checking account that earns by default."
+1. **0:00 Hook** — "A payment wallet where every spend routes through DeepBook.
+   Watch a real one." Open `/app` → SmartSpend.
+2. **0:20 Real swap** — connect testnet wallet, enter 0.5 SUI → USDC, show the
+   live order-book quote, hit Swap, approve in wallet.
+3. **0:55 Proof** — open the Suiscan link from the success card; show the PTB
+   with the DeepBook pool calls.
+4. **1:25 Real yield** — Earn tab: supply ~0.1 SUI into Scallop on mainnet,
+   approve in wallet, open the Suiscan **mainnet** link; note the sCoin now
+   earning. Dashboard shows the live "Live · Scallop mainnet" APYs.
+5. **2:00 Honesty** — show the labeled simulated tabs (Lock Rate / Spend
+   Tomorrow / cashback) as roadmap. "Real DeepBook routing on testnet, real
+   Scallop yield on mainnet, today."
 
-## 6. How we map to the judging rubric
+## 7. How we map to the rubric
 
-- **Technical execution** — tested Move package + real PTB SDK + tested agent; atomic borrow-swap-send-cashback in one transaction.
-- **Innovation** — first consumer payment app to consume 4 DeepBook surfaces (Spot/Predict/Margin/DEEP) + Scallop + Pyth in one product.
-- **Real-world usability** — Cash-App-style UX, sub-second settlement, no-exit-yield spend, FX rate-lock for bills, BNPL without selling your bag.
-- **Sui ecosystem fit** — PTB atomicity is the differentiator; zkLogin onboarding; shared-object architecture.
-- **Sponsor depth** — Scallop is the yield engine for every asset; DeepBook is hit on every transaction; OZ patterns gate every mutating entry; Pyth guards staleness.
-
-## 7. Honest scope notes
-
-The `/app` UI is a **seeded testnet mock** for a smooth demo; the real on-chain
-logic is in `contracts/` and the buildable PTBs are in `sdk/`. The Scallop /
-DeepBook / Pyth adapters in the Move package model sponsor behavior behind clean
-interfaces with `// INTEGRATION:` markers at every real call site — swapping in
-the mainnet SDKs is a localized change, not a rewrite.
+- **Technical execution** — a real, atomic, wallet-signed DeepBook v3 PTB on
+  testnet; live protocol data reads; a deployed Move package + PTB SDK.
+- **Innovation** — a consumer payment framed around on-chain order-book routing,
+  with a working swap to prove the core claim.
+- **Real-world usability** — Cash-App-style UX; the swap works from a fresh
+  faucet wallet with no DEEP/BalanceManager friction.
+- **Sui ecosystem fit** — atomic PTB routing through DeepBook is the differentiator.
+- **Honesty** — we label every simulated surface; the real parts are verifiable
+  on-chain.

@@ -207,7 +207,7 @@ export function SmartSpendTab({ assets, paused, onSpend }: SmartSpendTabProps) {
       <div className="border border-foreground/10 bg-black rounded-xl p-6">
         <div className="flex items-center justify-between mb-5">
           <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
-            Atomic PTB
+            Atomic PTB · simulated
           </span>
           {phase === "executing" && (
             <span className="flex items-center gap-1.5 font-mono text-xs text-[#CFFF03]">

@@ -15,9 +15,13 @@ interface DashboardTabProps {
   assets: Asset[];
   /** total yield accrued live since the demo opened, in USD */
   accruedYield: number;
+  /** true when the displayed APYs are live Scallop mainnet supply rates */
+  apyLive?: boolean;
+  /** ISO timestamp from Scallop's indexer for the live rates */
+  apyUpdatedAt?: string | null;
 }
 
-export function DashboardTab({ assets, accruedYield }: DashboardTabProps) {
+export function DashboardTab({ assets, accruedYield, apyLive, apyUpdatedAt }: DashboardTabProps) {
   const total = totalUsdValue(assets);
   const apy = blendedApy(assets);
   const dailyYield = (total * apy) / 365;
@@ -40,6 +44,15 @@ export function DashboardTab({ assets, accruedYield }: DashboardTabProps) {
             <span className="text-sm font-mono text-emerald-400 mb-1.5">
               +{(apy * 100).toFixed(2)}% APY blended
             </span>
+            {apyLive && (
+              <span
+                className="mb-1.5 flex items-center gap-1.5 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-emerald-400"
+                title={apyUpdatedAt ? `Scallop indexer · ${apyUpdatedAt}` : undefined}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Live · Scallop mainnet
+              </span>
+            )}
           </div>
 
           <div className="mt-6 flex flex-wrap gap-x-10 gap-y-4">
@@ -117,8 +130,9 @@ export function DashboardTab({ assets, accruedYield }: DashboardTabProps) {
       </div>
 
       <p className="font-mono text-[11px] text-muted-foreground/60 leading-relaxed">
-        Idle balance auto-deposits into per-asset Scallop pools; sCoins back the vault accounting.
-        Yield ticks here in real time and keeps accruing even while you spend.
+        {apyLive ? "APYs are live Scallop mainnet supply rates" : "APYs are reference supply rates"}{" "}
+        (Scallop is mainnet-only, so these are real reference yields). Basket balances are demo
+        figures; the accrued-yield ticker projects from the live APYs.
       </p>
     </div>
   );
